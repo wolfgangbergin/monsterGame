@@ -3,15 +3,17 @@ const monsterHealthBar = document.getElementById('monster-health');
 let mHealth = 100;
 let pHealth = 100;
 
-
-export function round( modifier) {
-  let attack = ( modifier = 1, hB) => {
-    console.log(modifier)
-    let temp = Math.round(Math.random() *  modifier);
-    mHealth -= temp;
-    pHealth -= temp;
-    hB.value = mHealth;
+export function round(modifier) {
+  let damage = (param1) => {
+    return Math.round(Math.random() * param1);
   };
-  attack.call(this,  modifier, monsterHealthBar);
-  attack.call(this,  undefined, playerHealthBar);
+
+  let attack = (modifier = 1) => {
+    console.log(modifier);
+    mHealth -= damage(modifier);
+    pHealth -= damage(modifier);
+    monsterHealthBar.value = mHealth;
+    playerHealthBar.value = pHealth;
+  };
+  attack.call(this, modifier);
 }
