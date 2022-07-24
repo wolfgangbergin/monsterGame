@@ -1,7 +1,7 @@
-import {attack} from './app.js'
+import {round} from './app.js'
 
 
-const playerHealthBar = document.getElementById('player-health');
+
 const bonusLifeEl = document.getElementById('bonus-life');
 
 const attackBtn = document.getElementById('attack-btn');
@@ -11,8 +11,8 @@ const logBtn = document.getElementById('log-btn');
 const consoleLog = document.getElementById('console-Log');
 
 
-attackBtn.addEventListener('click',()=>attack.call(this, 10))
-strongAttackBtn.addEventListener('click',()=>attack.call(this, 20))
+attackBtn.addEventListener('click',()=>round.call(this, 10))
+strongAttackBtn.addEventListener('click',()=>round.call(this, 55))
 
 
 

@@ -1,17 +1,17 @@
-
+const playerHealthBar = document.getElementById('player-health');
 const monsterHealthBar = document.getElementById('monster-health');
-let monsterHealth = 100
-monsterHealthBar.max = 100
+let mHealth = 100;
+let pHealth = 100;
 
-export let  attack = (param1)=>{
 
-    let temp = Math.round(Math.random() * param1)
-    
-    monsterHealth -= temp
-    console.dir(temp)
-    monsterHealthBar.value = monsterHealth
+export function round( modifier) {
+  let attack = ( modifier = 1, hB) => {
+    console.log(modifier)
+    let temp = Math.round(Math.random() *  modifier);
+    mHealth -= temp;
+    pHealth -= temp;
+    hB.value = mHealth;
+  };
+  attack.call(this,  modifier, monsterHealthBar);
+  attack.call(this,  undefined, playerHealthBar);
 }
-
-
-
-
