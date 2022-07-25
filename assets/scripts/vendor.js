@@ -12,8 +12,9 @@ const consoleLog = document.getElementById('console-Log');
 
 
 attackBtn.addEventListener('click',()=>round.call(this, 10))
-strongAttackBtn.addEventListener('click',()=>round.call(this, 55))
+strongAttackBtn.addEventListener('click',()=>round.call(this, 90))
+healBtn.addEventListener('click',()=>round.call(this, '+'))
 
 
 
-
+console.dir(healBtn.disabled = true)
