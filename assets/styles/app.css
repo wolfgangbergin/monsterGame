@@ -39,7 +39,7 @@ progress[value]::-moz-progress-bar {
 
 button {
   font: inherit;
-  background: #ff0062;
+  background: blue;
   border: 1px solid #ff0062;
   color: white;
   padding: 1rem 2rem;
@@ -50,12 +50,18 @@ button {
 
 button:focus {
   outline: none;
+
 }
 
 button:hover,
 button:active {
   background: #a927f5;
   border-color: #a927f5;
+}
+
+
+button:disabled {
+  background-color: darkgrey;
 }
 
 #health-levels,
