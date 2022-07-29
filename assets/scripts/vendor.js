@@ -1,11 +1,11 @@
-import { round } from './app.js';
+import { round, gameLog } from './app.js';
 
-const bonusLifeEl = document.getElementById('bonus-life');
+const logBtn = document.getElementById('log-btn');
 
 const attackBtn = document.getElementById('attack-btn');
 const strongAttackBtn = document.getElementById('strong-attack-btn');
 const healBtn = document.getElementById('heal-btn');
-const logBtn = document.getElementById('log-btn');
+
 const consoleLog = document.getElementById('console-Log');
 
 attackBtn.addEventListener('click', function () {
@@ -17,5 +17,16 @@ strongAttackBtn.addEventListener('click', () => {
 });
 healBtn.addEventListener('click', () => {
   healBtn.disabled = true;
-  round.call(this, '+');
+  round.call(this, 'heal');
 });
+
+logBtn.addEventListener('click', ()=>{
+   
+    if (logBtn.innerHTML === "SHOW LOG"){
+        logBtn.innerHTML = 'HIDE LOG'
+    }else if(logBtn.innerHTML = 'HIDE LOG'){
+        logBtn.innerHTML = "SHOW LOG"
+    }
+   
+    gameLog()
+})
