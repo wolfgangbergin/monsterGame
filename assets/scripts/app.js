@@ -1,8 +1,18 @@
+let startingHealth;
+function startGame(){
+  let temp  = prompt(`Enter starting Health `)
+  if (temp > 50 && temp < 151){
+    startingHealth = temp
+  }
+
+ 
+}
+startGame()
 const playerHealthBar = document.getElementById('player-health');
 const monsterHealthBar = document.getElementById('monster-health');
 const bonusLifeEl = document.getElementById('bonus-life');
 
-let combatLog = false
+let combatLog = true
 
 
 let  pBonesLife = 1
@@ -10,8 +20,9 @@ bonusLifeEl.innerHTML = pBonesLife
 
 let monsterStrongAttact = true;
 let monsterHeal = true;
-let mHealth = 100;
-let pHealth = 100;
+
+let mHealth = startingHealth;
+let pHealth = startingHealth;
 
 let roundNumber = 0;
 
@@ -21,6 +32,8 @@ export let gameLog = ()=>{
 }
 
 export function round(modifier) {
+  let playerMessage = ``
+  let monsterMessage = ``
   roundNumber += 1;
   if (mHealth === 0 && pHealth === 0) {
     console.log('Its a tie game');
@@ -39,21 +52,27 @@ export function round(modifier) {
     if (modifier === 'heal' && pBonesLife > 0) {
       pBonesLife = 0
       bonusLifeEl.innerHTML = pBonesLife
-      pHealth = 100;
+      pHealth = startingHealth;
+      playerMessage = `Player Heals to ${startingHealth}`
     } else {
       mHealth -= damage(modifier);
+      playerMessage = `Player dose ${damage(modifier)}`
     }
     if (mHealth < 10 && monsterHeal) {
-      mHealth = 100;
+      mHealth = startingHealth;
       monsterHeal = false;
+      monsterMessage = `Monster Heals to ${startingHealth}`
     } else if (mHealth < 30 && monsterStrongAttact) {
       pHealth -= damage(20);
       monsterStrongAttact = false;
+      monsterMessage = `Monster dose ${damage(modifier)}`
     } else {
       pHealth -= damage(10);
+      monsterMessage = `Monster dose ${damage(10)}`
     }
     if (combatLog){
-      console.log(combatLog)
+      console.log(`${playerMessage} and ${monsterMessage}!`)
+      
     }
 
     monsterHealthBar.value = mHealth;
