@@ -31,6 +31,7 @@ logBtn.addEventListener('click', () => {
 
 
 export function startGame() {
+  
   let temp =  parseInt(prompt(`Plese Enter 55!`, 55 ));
   if (temp !== 55) {
     
