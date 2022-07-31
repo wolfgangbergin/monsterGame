@@ -1,5 +1,5 @@
- import { startGame } from './vendor.js'
- let startingHealth = startGame();
+import { startGame } from './vendor.js';
+let startingHealth = startGame();
 
 const playerHealthBar = document.getElementById('player-health');
 const monsterHealthBar = document.getElementById('monster-health');
