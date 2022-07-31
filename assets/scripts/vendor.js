@@ -1,5 +1,4 @@
 import { round, gameLog } from './app.js';
-
 const logBtn = document.getElementById('log-btn');
 
 const attackBtn = document.getElementById('attack-btn');
@@ -20,13 +19,24 @@ healBtn.addEventListener('click', () => {
   round.call(this, 'heal');
 });
 
-logBtn.addEventListener('click', ()=>{
-   
-    if (logBtn.innerHTML === "SHOW LOG"){
-        logBtn.innerHTML = 'HIDE LOG'
-    }else if(logBtn.innerHTML = 'HIDE LOG'){
-        logBtn.innerHTML = "SHOW LOG"
-    }
-   
-    gameLog()
-})
+logBtn.addEventListener('click', () => {
+  if (logBtn.innerHTML === 'SHOW LOG') {
+    logBtn.innerHTML = 'HIDE LOG';
+  } else if ((logBtn.innerHTML = 'HIDE LOG')) {
+    logBtn.innerHTML = 'SHOW LOG';
+  }
+
+  gameLog();
+});
+
+
+export function startGame() {
+  let temp =  parseInt(prompt(`Plese Enter 55!`, 55 ));
+  if (temp !== 55) {
+    
+    return startGame();
+  } 
+    return temp;
+  
+}
+
