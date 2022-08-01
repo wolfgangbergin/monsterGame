@@ -8,11 +8,11 @@ const healBtn = document.getElementById('heal-btn');
 const consoleLog = document.getElementById('console-Log');
 
 attackBtn.addEventListener('click', function () {
-  round.call(this, 10);
+  round.call(this, `attack`);
 });
 strongAttackBtn.addEventListener('click', () => {
   strongAttackBtn.disabled = true;
-  round.call(this, 20);
+  round.call(this, `strong`);
 });
 healBtn.addEventListener('click', () => {
   healBtn.disabled = true;
@@ -31,8 +31,6 @@ logBtn.addEventListener('click', () => {
 
 export function startGame() {
   let temp = parseInt(prompt(`Plese Enter 55!`, 55));
-  if (temp !== 55) {
-    return startGame();
-  }
-  return temp;
+  return temp !== 55 ? startGame() : temp;
 }
+

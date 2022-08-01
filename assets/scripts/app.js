@@ -1,21 +1,17 @@
 import { startGame } from './vendor.js';
 let startingHealth = startGame();
 
-const playerHealthBar = document.getElementById('player-health');
-const monsterHealthBar = document.getElementById('monster-health');
-const bonusLifeEl = document.getElementById('bonus-life');
+export const playerHealthBar = document.getElementById('player-health');
+export const monsterHealthBar = document.getElementById('monster-health');
+export const bonusLifeEl = document.getElementById('bonus-life');
 
 let combatLog = true;
-
 let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
-
 let monsterStrongAttact = true;
 let monsterHeal = true;
-
 let mHealth = startingHealth;
 let pHealth = startingHealth;
-
 let roundNumber = 0;
 
 export let gameLog = () => {
@@ -35,21 +31,28 @@ export function round(modifier) {
       bonusLifeEl.innerHTML = pBonesLife;
       pHealth = startingHealth;
       playerMessage = `Player Heals to ${startingHealth}`;
-    } else {
-      mHealth -= damage(modifier);
-      playerMessage = `Player dose ${damage(modifier)}`;
+    } else if (modifier === `strong`) {
+      let temp = damage(30);
+      mHealth -= temp;
+      playerMessage = `Player strong attack dose ${temp}!`;
+    } else if (modifier === `attack`) {
+      let temp = damage(10);
+      mHealth -= temp;
+      playerMessage = `Player attack dose ${temp}`;
     }
     if (mHealth < 10 && monsterHeal) {
       mHealth = startingHealth;
       monsterHeal = false;
       monsterMessage = `Monster Heals to ${startingHealth}`;
     } else if (mHealth < 30 && monsterStrongAttact) {
-      pHealth -= damage(20);
+      let temp = damage(30);
+      pHealth -= temp;
       monsterStrongAttact = false;
-      monsterMessage = `Monster dose ${damage(modifier)}`;
+      monsterMessage = `Monster strong attack dose ${temp}!`;
     } else {
-      pHealth -= damage(10);
-      monsterMessage = `Monster dose ${damage(10)}`;
+      let temp = damage(10);
+      monsterMessage = `Monster attack dose ${temp}`;
+      pHealth -= temp;
     }
     if (combatLog) {
       console.log(`${playerMessage} and ${monsterMessage}!`);
