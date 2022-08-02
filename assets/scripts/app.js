@@ -15,33 +15,33 @@ export let gameLog = () => {
   combatLog = !combatLog;
 };
 
-export function onAttackHandler(modifier) {
+export function onAttackHandler(attackMode) {
   let playerMessage = ``;
   let monsterMessage = ``;
   roundNumber += 1;
 
   let damage = (param1) => Math.round(Math.random() * param1);
 
-  let combatRound = (modifier) => {
-    if (modifier === 'heal' && pBonesLife > 0 && pHealth > 0) {
+  let combatRound = (attackMode) => {
+    if (attackMode === 'heal' && pBonesLife > 0 && pHealth > 0) {
       pBonesLife = 0;
       bonusLifeEl.innerHTML = pBonesLife;
       pHealth = startingHealth;
       playerMessage = `Player Heals to ${startingHealth}`;
-    } else if (modifier === `strong`) {
+    } else if (attackMode === `strong`) {
       let temp = damage(30);
       mHealth -= temp;
       playerMessage = `Player strong attack dose ${temp}!`;
-    } else if (modifier === `attack`) {
+    } else if (attackMode === `attack`) {
       let temp = damage(10);
       mHealth -= temp;
       playerMessage = `Player attack dose ${temp}`;
     }
-    if (mHealth < 10 && monsterHeal && mHealth > 0) {
+    if (mHealth < 20 && monsterHeal && mHealth > 0) {
       mHealth = startingHealth;
       monsterHeal = false;
       monsterMessage = `Monster Heals to ${startingHealth}`;
-    } else if (mHealth < 30 && monsterStrongAttact) {
+    } else if (pHealth < 15 && monsterStrongAttact ) {
       let temp = damage(30);
       pHealth -= temp;
       monsterStrongAttact = false;
@@ -70,6 +70,6 @@ export function onAttackHandler(modifier) {
     console.log('We have a draw!');
     return;
   } else {
-    combatRound.call(this, modifier);
+    combatRound.call(this, attackMode);
   }
 }
