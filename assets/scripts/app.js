@@ -1,9 +1,9 @@
 import { startGame, playerHealthBar, monsterHealthBar } from './vendor.js';
 // let startingHealth = startGame();
-const bonusLifeEl = document.getElementById('bonus-life');
+ const bonusLifeEl = document.getElementById('bonus-life');
 let startingHealth = 55;
 let combatLog = true;
-let pBonesLife = 1;
+ let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
 let monsterStrongAttact = true;
 let monsterHeal = true;
