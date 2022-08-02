@@ -1,5 +1,7 @@
 import { startGame } from './vendor.js';
-let startingHealth = startGame();
+// let startingHealth = startGame();
+// const WOLF_MAN = "WOLF_MAN"
+let startingHealth = 55;
 
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
@@ -18,14 +20,14 @@ export let gameLog = () => {
   combatLog = !combatLog;
 };
 
-export function round(modifier) {
+export function onAttackHandler(modifier) {
   let playerMessage = ``;
   let monsterMessage = ``;
   roundNumber += 1;
 
   let damage = (param1) => Math.round(Math.random() * param1);
 
-  let attack = (modifier) => {
+  let combatRound = (modifier) => {
     if (modifier === 'heal' && pBonesLife > 0) {
       pBonesLife = 0;
       bonusLifeEl.innerHTML = pBonesLife;
@@ -63,16 +65,13 @@ export function round(modifier) {
     playerHealthBar.value = pHealth;
   };
 
-  if (mHealth === 0 && pHealth === 0) {
-    console.log('Its a tie game');
+  if (mHealth <= 0) {
+    console.log('You Wins!!! :)');
     return;
-  } else if (mHealth < 1) {
-    console.log('Player Wins');
-    return;
-  } else if (pHealth < 1) {
+  } else if (pHealth <= 0) {
     console.log('Monster Wins!');
     return;
   } else {
-    attack.call(this, modifier);
+    combatRound.call(this, modifier);
   }
 }
