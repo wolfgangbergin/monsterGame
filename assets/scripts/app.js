@@ -20,17 +20,14 @@ export function onAttackHandler(attackMode) {
   let monsterMessage = ``;
   roundNumber += 1;
 
-  function wolfman(attackMode){
+  function wolfman(attackMode) {
     let modifier;
-    if (attackMode === `normal`){
-     
-     modifier = 10
-     
-    } else if (attackMode === `strong`){
-      modifier = 30
-
+    if (attackMode === `normal`) {
+      modifier = 10;
+    } else if (attackMode === `strong`) {
+      modifier = 30;
     }
-    console.log(modifier)
+    console.log(modifier);
   }
 
   let damage = (param1) => Math.round(Math.random() * param1);
@@ -83,7 +80,7 @@ export function onAttackHandler(attackMode) {
     console.log('We have a draw!');
     return;
   } else {
-    wolfman(attackMode)
+    wolfman(attackMode);
     combatRound.call(this, attackMode);
   }
 }
