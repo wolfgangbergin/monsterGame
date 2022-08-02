@@ -1,4 +1,7 @@
 import { onAttackHandler, gameLog } from './app.js';
+export const playerHealthBar = document.getElementById('player-health');
+export const monsterHealthBar = document.getElementById('monster-health');
+
 const logBtn = document.getElementById('log-btn');
 
 const attackBtn = document.getElementById('attack-btn');

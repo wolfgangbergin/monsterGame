@@ -1,12 +1,7 @@
-import { startGame } from './vendor.js';
+import { startGame, playerHealthBar, monsterHealthBar } from './vendor.js';
 // let startingHealth = startGame();
-// const WOLF_MAN = "WOLF_MAN"
+const bonusLifeEl = document.getElementById('bonus-life');
 let startingHealth = 55;
-
-export const playerHealthBar = document.getElementById('player-health');
-export const monsterHealthBar = document.getElementById('monster-health');
-export const bonusLifeEl = document.getElementById('bonus-life');
-
 let combatLog = true;
 let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
