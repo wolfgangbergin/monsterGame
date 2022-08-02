@@ -1,9 +1,9 @@
 import { startGame, playerHealthBar, monsterHealthBar } from './vendor.js';
 // let startingHealth = startGame();
- const bonusLifeEl = document.getElementById('bonus-life');
+const bonusLifeEl = document.getElementById('bonus-life');
 let startingHealth = 50;
 let combatLog = true;
- let pBonesLife = 1;
+let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
 let monsterStrongAttact = true;
 let monsterHeal = true;
@@ -23,30 +23,30 @@ export function onAttackHandler(attackMode) {
   let damage = (param1) => Math.round(Math.random() * param1);
 
   let combatRound = (attackMode) => {
-    if (attackMode === 'heal' && pBonesLife > 0 && pHealth > 0) {
+    if (attackMode === 'heal' && pBonesLife > 0 && pHealth >= 1) {
       pBonesLife = 0;
       bonusLifeEl.innerHTML = pBonesLife;
       pHealth = startingHealth;
       playerMessage = `Player Heals to ${startingHealth}`;
-    } else if (attackMode === `strong`) {
+    } else if (attackMode === `strong` && pHealth >= 1) {
       let temp = damage(30);
       mHealth -= temp;
       playerMessage = `Player strong attack dose ${temp}!`;
-    } else if (attackMode === `attack`) {
+    } else if (attackMode === `normal` && pHealth >= 1) {
       let temp = damage(10);
       mHealth -= temp;
       playerMessage = `Player attack dose ${temp}`;
     }
-    if (mHealth < 20 && monsterHeal && mHealth > 0) {
+    if (mHealth < 20 && monsterHeal && mHealth >= 1) {
       mHealth = startingHealth;
       monsterHeal = false;
       monsterMessage = `Monster Heals to ${startingHealth}`;
-    } else if (pHealth < 15 && monsterStrongAttact ) {
+    } else if (pHealth < 15 && monsterStrongAttact && mHealth >= 1) {
       let temp = damage(30);
       pHealth -= temp;
       monsterStrongAttact = false;
       monsterMessage = `Monster strong attack dose ${temp}!`;
-    } else {
+    } else if (mHealth >= 1) {
       let temp = damage(10);
       monsterMessage = `Monster attack dose ${temp}`;
       pHealth -= temp;
@@ -66,7 +66,7 @@ export function onAttackHandler(attackMode) {
   } else if (pHealth <= 0 && mHealth > 0) {
     console.log('Monster Wins!');
     return;
-  } else if (pHealth <= 0 && mHealth <= 0){
+  } else if (pHealth <= 0 && mHealth <= 0) {
     console.log('We have a draw!');
     return;
   } else {
