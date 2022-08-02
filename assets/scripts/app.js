@@ -1,7 +1,7 @@
 import { startGame, playerHealthBar, monsterHealthBar } from './vendor.js';
 // let startingHealth = startGame();
 const bonusLifeEl = document.getElementById('bonus-life');
-let startingHealth = 50;
+let startingHealth = 500;
 let combatLog = true;
 let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
@@ -19,6 +19,19 @@ export function onAttackHandler(attackMode) {
   let playerMessage = ``;
   let monsterMessage = ``;
   roundNumber += 1;
+
+  function wolfman(attackMode){
+    let modifier;
+    if (attackMode === `normal`){
+     
+     modifier = 10
+     
+    } else if (attackMode === `strong`){
+      modifier = 30
+
+    }
+    console.log(modifier)
+  }
 
   let damage = (param1) => Math.round(Math.random() * param1);
 
@@ -70,6 +83,7 @@ export function onAttackHandler(attackMode) {
     console.log('We have a draw!');
     return;
   } else {
+    wolfman(attackMode)
     combatRound.call(this, attackMode);
   }
 }
