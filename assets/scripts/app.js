@@ -1,7 +1,7 @@
 import { startGame, playerHealthBar, monsterHealthBar } from './vendor.js';
 // let startingHealth = startGame();
  const bonusLifeEl = document.getElementById('bonus-life');
-let startingHealth = 55;
+let startingHealth = 50;
 let combatLog = true;
  let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
@@ -23,7 +23,7 @@ export function onAttackHandler(modifier) {
   let damage = (param1) => Math.round(Math.random() * param1);
 
   let combatRound = (modifier) => {
-    if (modifier === 'heal' && pBonesLife > 0) {
+    if (modifier === 'heal' && pBonesLife > 0 && pHealth > 0) {
       pBonesLife = 0;
       bonusLifeEl.innerHTML = pBonesLife;
       pHealth = startingHealth;
@@ -37,7 +37,7 @@ export function onAttackHandler(modifier) {
       mHealth -= temp;
       playerMessage = `Player attack dose ${temp}`;
     }
-    if (mHealth < 10 && monsterHeal) {
+    if (mHealth < 10 && monsterHeal && mHealth > 0) {
       mHealth = startingHealth;
       monsterHeal = false;
       monsterMessage = `Monster Heals to ${startingHealth}`;
@@ -60,11 +60,14 @@ export function onAttackHandler(modifier) {
     playerHealthBar.value = pHealth;
   };
 
-  if (mHealth <= 0) {
+  if (mHealth <= 0 && pHealth > 0) {
     console.log('You Wins!!! :)');
     return;
-  } else if (pHealth <= 0) {
+  } else if (pHealth <= 0 && mHealth > 0) {
     console.log('Monster Wins!');
+    return;
+  } else if (pHealth <= 0 && mHealth <= 0){
+    console.log('We have a draw!');
     return;
   } else {
     combatRound.call(this, modifier);
