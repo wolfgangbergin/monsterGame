@@ -1,5 +1,11 @@
-import { promtUser, playerHealthBar, monsterHealthBar, healBtn, strongAttackBtn } from './vendor.js';
-//let startingHealth = promtUser();
+import {
+  promtUser,
+  playerHealthBar,
+  monsterHealthBar,
+  healBtn,
+  strongAttackBtn,
+} from './vendor.js';
+
 let startingHealth = 45;
 const bonusLifeEl = document.getElementById('bonus-life');
 
@@ -43,7 +49,7 @@ export function onAttackHandler(attackMode) {
       pHealth -= temp;
       monsterStrongAttact = false;
       monsterMessage = `Monster strong attack dose ${temp}!`;
-    } else  {
+    } else {
       let temp = damage(10);
       monsterMessage = `Monster attack dose ${temp}`;
       pHealth -= temp;
@@ -74,6 +80,7 @@ export function onAttackHandler(attackMode) {
   }
 }
 function startGame() {
+  // startingHealth = promtUser();
   pBonesLife = 1;
   bonusLifeEl.innerHTML = pBonesLife;
   monsterStrongAttact = true;
