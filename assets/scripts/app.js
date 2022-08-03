@@ -1,5 +1,5 @@
-import { startGame, playerHealthBar, monsterHealthBar } from './vendor.js';
-// let startingHealth = startGame();
+import { promtUser, playerHealthBar, monsterHealthBar, healBtn, strongAttackBtn } from './vendor.js';
+//let startingHealth = promtUser();
 let startingHealth = 45;
 const bonusLifeEl = document.getElementById('bonus-life');
 
@@ -10,17 +10,15 @@ let monsterStrongAttact = true;
 let monsterHeal = true;
 let mHealth = startingHealth;
 let pHealth = startingHealth;
-let roundNumber = 0;
 
 export let gameLog = () => (combatLog = !combatLog);
 
 export function onAttackHandler(attackMode) {
   let playerMessage = ``;
   let monsterMessage = ``;
-  roundNumber += 1;
-  
+
   let damage = (param1) => Math.round(Math.random() * param1);
-  
+
   let combatRound = (attackMode) => {
     if (attackMode === 'heal' && pBonesLife > 0 && pHealth >= 1) {
       pBonesLife = 0;
@@ -45,7 +43,7 @@ export function onAttackHandler(attackMode) {
       pHealth -= temp;
       monsterStrongAttact = false;
       monsterMessage = `Monster strong attack dose ${temp}!`;
-    } else if (mHealth >= 1) {
+    } else  {
       let temp = damage(10);
       monsterMessage = `Monster attack dose ${temp}`;
       pHealth -= temp;
@@ -58,21 +56,32 @@ export function onAttackHandler(attackMode) {
     monsterHealthBar.value = mHealth;
     playerHealthBar.value = pHealth;
   };
-  
+
   if (mHealth <= 0 && pHealth > 0) {
     console.log('You Wins!!! :) starting new game.');
-    
-    
+    startGame();
     return;
   } else if (pHealth <= 0 && mHealth > 0) {
-    console.log('Monster Wins! starting new game.');
-    
+    console.log(`Monster Wins! starting new game.`);
+    startGame();
     return;
   } else if (pHealth <= 0 && mHealth <= 0) {
     console.log('We have a draw! starting new game.');
-    
+    startGame();
     return;
   } else {
     combatRound.call(this, attackMode);
   }
+}
+function startGame() {
+  pBonesLife = 1;
+  bonusLifeEl.innerHTML = pBonesLife;
+  monsterStrongAttact = true;
+  monsterHeal = true;
+  strongAttackBtn.disabled = false;
+  healBtn.disabled = false;
+  mHealth = startingHealth;
+  pHealth = startingHealth;
+  playerHealthBar.value = mHealth;
+  monsterHealthBar.value = pHealth;
 }

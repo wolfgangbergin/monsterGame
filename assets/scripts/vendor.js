@@ -5,8 +5,8 @@ export const monsterHealthBar = document.getElementById('monster-health');
 const logBtn = document.getElementById('log-btn');
 
 const attackBtn = document.getElementById('attack-btn');
-const strongAttackBtn = document.getElementById('strong-attack-btn');
-const healBtn = document.getElementById('heal-btn');
+export const strongAttackBtn = document.getElementById('strong-attack-btn');
+export const healBtn = document.getElementById('heal-btn');
 
 const consoleLog = document.getElementById('console-Log');
 
@@ -32,8 +32,8 @@ logBtn.addEventListener('click', () => {
   gameLog();
 });
 
-export function startGame() {
+export function promtUser() {
   let temp = +prompt(`Plese Enter 45?`, 45)
-  return temp !== 45 ? startGame() : temp;
+  return temp !== 45 ? promtUser() : temp;
 }
 
