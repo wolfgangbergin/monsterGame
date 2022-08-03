@@ -1,4 +1,4 @@
-import { onAttackHandler, gameLog, } from './app.js';
+import { onAttackHandler, gameLog, kim} from './app.js';
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 
@@ -8,7 +8,7 @@ const attackBtn = document.getElementById('attack-btn');
 export const strongAttackBtn = document.getElementById('strong-attack-btn');
 export const healBtn = document.getElementById('heal-btn');
 
-const consoleLog = document.getElementById('console-Log');
+const wolfmanLog = document.getElementById('wolfman-Log');
 
 attackBtn.addEventListener('click', function () {
   onAttackHandler.call(this, `normal`);
@@ -37,3 +37,10 @@ export function promtUser() {
   return temp !== 45 ? promtUser() : temp;
 }
 
+wolfmanLog.addEventListener('click', ()=>wolfman())
+
+
+function wolfman(){
+kim.age = 313
+  console.dir(kim.age)
+}

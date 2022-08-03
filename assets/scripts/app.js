@@ -6,6 +6,8 @@ import {
   strongAttackBtn,
 } from './vendor.js';
 
+export const kim = {age: 22}
+
 let startingHealth = 45;
 const bonusLifeEl = document.getElementById('bonus-life');
 
@@ -66,15 +68,12 @@ export function onAttackHandler(attackMode) {
   if (mHealth <= 0 && pHealth > 0) {
     console.log('You Wins!!! :) starting new game.');
     startGame();
-    return;
   } else if (pHealth <= 0 && mHealth > 0) {
     console.log(`Monster Wins! starting new game.`);
     startGame();
-    return;
   } else if (pHealth <= 0 && mHealth <= 0) {
     console.log('We have a draw! starting new game.');
     startGame();
-    return;
   } else {
     combatRound.call(this, attackMode);
   }
