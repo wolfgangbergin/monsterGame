@@ -1,4 +1,4 @@
-import { onAttackHandler, gameLog } from './app.js';
+import { onAttackHandler, gameLog, } from './app.js';
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 
@@ -33,7 +33,7 @@ logBtn.addEventListener('click', () => {
 });
 
 export function startGame() {
-  let temp = +prompt(`Plese Enter 55!`, 55)
-  return temp !== 55 ? startGame() : temp;
+  let temp = +prompt(`Plese Enter 45?`, 45)
+  return temp !== 45 ? startGame() : temp;
 }
 

@@ -1,7 +1,8 @@
 import { startGame, playerHealthBar, monsterHealthBar } from './vendor.js';
 // let startingHealth = startGame();
+let startingHealth = 45;
 const bonusLifeEl = document.getElementById('bonus-life');
-let startingHealth = 500;
+
 let combatLog = true;
 let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
@@ -11,27 +12,15 @@ let mHealth = startingHealth;
 let pHealth = startingHealth;
 let roundNumber = 0;
 
-export let gameLog = () => {
-  combatLog = !combatLog;
-};
+export let gameLog = () => (combatLog = !combatLog);
 
 export function onAttackHandler(attackMode) {
   let playerMessage = ``;
   let monsterMessage = ``;
   roundNumber += 1;
-
-  function wolfman(attackMode) {
-    let modifier;
-    if (attackMode === `normal`) {
-      modifier = 10;
-    } else if (attackMode === `strong`) {
-      modifier = 30;
-    }
-    console.log(modifier);
-  }
-
+  
   let damage = (param1) => Math.round(Math.random() * param1);
-
+  
   let combatRound = (attackMode) => {
     if (attackMode === 'heal' && pBonesLife > 0 && pHealth >= 1) {
       pBonesLife = 0;
@@ -69,18 +58,21 @@ export function onAttackHandler(attackMode) {
     monsterHealthBar.value = mHealth;
     playerHealthBar.value = pHealth;
   };
-
+  
   if (mHealth <= 0 && pHealth > 0) {
-    console.log('You Wins!!! :)');
+    console.log('You Wins!!! :) starting new game.');
+    
+    
     return;
   } else if (pHealth <= 0 && mHealth > 0) {
-    console.log('Monster Wins!');
+    console.log('Monster Wins! starting new game.');
+    
     return;
   } else if (pHealth <= 0 && mHealth <= 0) {
-    console.log('We have a draw!');
+    console.log('We have a draw! starting new game.');
+    
     return;
   } else {
-    wolfman(attackMode);
     combatRound.call(this, attackMode);
   }
 }
