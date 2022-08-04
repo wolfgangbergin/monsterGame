@@ -46,4 +46,4 @@ function wolfman() {
   KIM.age = 313;
   console.dir(KIM.age);
 }
-export let damage = (param1) => Math.round(Math.random() * param1);
+export let damage = (damageMog, Target) => Math.round(Math.random() * damageMog);
