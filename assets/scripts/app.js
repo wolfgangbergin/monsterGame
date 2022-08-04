@@ -4,14 +4,19 @@ import {
   monsterHealthBar,
   healBtn,
   strongAttackBtn,
+  NORMAL_ATTACK,
+  STRONG_ATTACK,
+  HEAL,
 } from './vendor.js';
 
-export const kim = {age: 22}
-
+export const KIM = { age: 22 };
+let logMessage = []
+// let startingHealth = promtUser();
 let startingHealth = 45;
+
 const bonusLifeEl = document.getElementById('bonus-life');
 
-let combatLog = true;
+ export let combatLog = false;
 let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
 let monsterStrongAttact = true;
@@ -28,16 +33,16 @@ export function onAttackHandler(attackMode) {
   let damage = (param1) => Math.round(Math.random() * param1);
 
   let combatRound = (attackMode) => {
-    if (attackMode === 'heal' && pBonesLife > 0 && pHealth >= 1) {
+    if (attackMode === HEAL && pBonesLife > 0 && pHealth >= 1) {
       pBonesLife = 0;
       bonusLifeEl.innerHTML = pBonesLife;
       pHealth = startingHealth;
       playerMessage = `Player Heals to ${startingHealth}`;
-    } else if (attackMode === `strong` && pHealth >= 1) {
+    } else if (attackMode === STRONG_ATTACK && pHealth >= 1) {
       let temp = damage(30);
       mHealth -= temp;
       playerMessage = `Player strong attack dose ${temp}!`;
-    } else if (attackMode === `normal` && pHealth >= 1) {
+    } else if (attackMode === NORMAL_ATTACK && pHealth >= 1) {
       let temp = damage(10);
       mHealth -= temp;
       playerMessage = `Player attack dose ${temp}`;
@@ -56,8 +61,10 @@ export function onAttackHandler(attackMode) {
       monsterMessage = `Monster attack dose ${temp}`;
       pHealth -= temp;
     }
+    logMessage.push(`${playerMessage} and ${monsterMessage}!`)
     if (combatLog) {
-      console.log(`${playerMessage} and ${monsterMessage}!`);
+
+      console.dir(logMessage);
     }
     monsterHealthBar.max = startingHealth;
     playerHealthBar.max = startingHealth;
@@ -66,10 +73,10 @@ export function onAttackHandler(attackMode) {
   };
 
   if (mHealth <= 0 && pHealth > 0) {
-    console.log('You Wins!!! :) starting new game.');
+    console.log(`You Wins with ${playerHealthBar.value} Health left!!! :)`);
     startGame();
   } else if (pHealth <= 0 && mHealth > 0) {
-    console.log(`Monster Wins! starting new game.`);
+    console.log(`Monster Wins with ${monsterHealthBar.value} Health left!`);
     startGame();
   } else if (pHealth <= 0 && mHealth <= 0) {
     console.log('We have a draw! starting new game.');
@@ -79,7 +86,7 @@ export function onAttackHandler(attackMode) {
   }
 }
 function startGame() {
-  // startingHealth = promtUser();
+  logMessage = []
   pBonesLife = 1;
   bonusLifeEl.innerHTML = pBonesLife;
   monsterStrongAttact = true;

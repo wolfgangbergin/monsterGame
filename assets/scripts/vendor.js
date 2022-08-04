@@ -1,7 +1,11 @@
-import { onAttackHandler, gameLog, kim} from './app.js';
+import { onAttackHandler, gameLog, KIM, combatLog } from './app.js';
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
-
+export const NORMAL_ATTACK = 'normal';
+export const STRONG_ATTACK = 'strong';
+export const HEAL = 'heal';
+const HIDE_LOG = 'HIDE LOG';
+const SHOW_LOG = 'SHOW LOG';
 const logBtn = document.getElementById('log-btn');
 
 const attackBtn = document.getElementById('attack-btn');
@@ -23,24 +27,22 @@ healBtn.addEventListener('click', () => {
 });
 
 logBtn.addEventListener('click', () => {
-  if (logBtn.innerHTML === 'SHOW LOG') {
-    logBtn.innerHTML = 'HIDE LOG';
-  } else if ((logBtn.innerHTML = 'HIDE LOG')) {
-    logBtn.innerHTML = 'SHOW LOG';
-  }
-
+  combatLog ? (logBtn.innerHTML = SHOW_LOG) : (logBtn.innerHTML = HIDE_LOG);
   gameLog();
 });
 
 export function promtUser() {
-  let temp = +prompt(`Plese Enter 45?`, 45)
-  return temp !== 45 ? promtUser() : temp;
+  let temp = +prompt(`Plese Enter 65?`, 65);
+  if (isNaN(temp) || temp <= 44 || temp > 100) {
+    console.dir(`invalid  entring 65`);
+    temp = 65;
+  }
+  return temp;
 }
 
-wolfmanLog.addEventListener('click', ()=>wolfman())
+wolfmanLog.addEventListener('click', () => wolfman());
 
-
-function wolfman(){
-kim.age = 313
-  console.dir(kim.age)
+function wolfman() {
+  KIM.age = 313;
+  console.dir(KIM.age);
 }
