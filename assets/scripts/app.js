@@ -7,16 +7,22 @@ import {
   NORMAL_ATTACK,
   STRONG_ATTACK,
   HEAL,
+  damage,
 } from './vendor.js';
 
 export const KIM = { age: 22 };
-let logMessage = []
+const WOLF_MAN = () => {
+  if (KIM.age === 22) {
+    return KIM.age;
+  }
+};
+let logMessage = [];
 // let startingHealth = promtUser();
 let startingHealth = 45;
 
 const bonusLifeEl = document.getElementById('bonus-life');
 
- export let combatLog = false;
+export let combatLog = false;
 let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
 let monsterStrongAttact = true;
@@ -29,9 +35,6 @@ export let gameLog = () => (combatLog = !combatLog);
 export function onAttackHandler(attackMode) {
   let playerMessage = ``;
   let monsterMessage = ``;
-
-  let damage = (param1) => Math.round(Math.random() * param1);
-
   let combatRound = (attackMode) => {
     if (attackMode === HEAL && pBonesLife > 0 && pHealth >= 1) {
       pBonesLife = 0;
@@ -61,9 +64,8 @@ export function onAttackHandler(attackMode) {
       monsterMessage = `Monster attack dose ${temp}`;
       pHealth -= temp;
     }
-    logMessage.push(`${playerMessage} and ${monsterMessage}!`)
+    logMessage.push(`${playerMessage} and ${monsterMessage}!`);
     if (combatLog) {
-
       console.dir(logMessage);
     }
     monsterHealthBar.max = startingHealth;
@@ -86,7 +88,7 @@ export function onAttackHandler(attackMode) {
   }
 }
 function startGame() {
-  logMessage = []
+  logMessage = [];
   pBonesLife = 1;
   bonusLifeEl.innerHTML = pBonesLife;
   monsterStrongAttact = true;
@@ -98,3 +100,4 @@ function startGame() {
   playerHealthBar.value = mHealth;
   monsterHealthBar.value = pHealth;
 }
+console.log(WOLF_MAN());
