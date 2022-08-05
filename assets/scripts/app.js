@@ -10,10 +10,11 @@ import {
   damage,
 } from './vendor.js';
 
-
-
 let logMessage = [];
- let startingHealth = promtUser();
+let startingHealth = promtUser();
+let mHealth = startingHealth;
+let pHealth = startingHealth;
+
 //let startingHealth = 45;
 
 const bonusLifeEl = document.getElementById('bonus-life');
@@ -23,8 +24,6 @@ let pBonesLife = 1;
 bonusLifeEl.innerHTML = pBonesLife;
 let monsterStrongAttact = true;
 let monsterHeal = true;
-let mHealth = startingHealth;
-let pHealth = startingHealth;
 
 export let gameLog = () => (combatLog = !combatLog);
 
@@ -80,6 +79,7 @@ export function onAttackHandler(attackMode) {
     console.log('We have a draw! starting new game.');
     startGame();
   } else {
+    console.dir(startingHealth)
     combatRound.call(this, attackMode);
   }
 }
@@ -96,4 +96,3 @@ function startGame() {
   playerHealthBar.value = mHealth;
   monsterHealthBar.value = pHealth;
 }
-
