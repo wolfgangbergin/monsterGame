@@ -31,6 +31,8 @@ logBtn.addEventListener('click', () => {
   gameLog();
 });
 
+
+
 export function promtUser() {
   let temp = +prompt(`Plese Enter 65?`, 66);
   return isNaN(temp)
