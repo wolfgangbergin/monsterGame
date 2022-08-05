@@ -32,12 +32,14 @@ logBtn.addEventListener('click', () => {
 });
 
 export function promtUser() {
-  let temp = +prompt(`Plese Enter 65?`, 65);
-  if (isNaN(temp) || temp <= 44 || temp > 100) {
-    console.dir(`invalid  entring 65`);
-    temp = 65;
-  }
-  return temp;
+  let temp = +prompt(`Plese Enter 65?`, 66);
+  return isNaN(temp)
+    ? (temp = 65)
+    : temp <= 44
+    ? (temp = 45)
+    : temp > 100
+    ? (temp = 99)
+    : temp;
 }
 
 wolfmanLog.addEventListener('click', () => wolfman());
@@ -46,4 +48,4 @@ function wolfman() {
   KIM.age = 313;
   console.dir(KIM.age);
 }
-export let damage = (damageMog, Target) => Math.round(Math.random() * damageMog);
+export let damage = (damageMog) => Math.round(Math.random() * damageMog);

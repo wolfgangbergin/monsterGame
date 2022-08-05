@@ -17,8 +17,8 @@ const WOLF_MAN = () => {
   }
 };
 let logMessage = [];
-// let startingHealth = promtUser();
-let startingHealth = 45;
+ let startingHealth = promtUser();
+//let startingHealth = 45;
 
 const bonusLifeEl = document.getElementById('bonus-life');
 
