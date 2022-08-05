@@ -1,4 +1,4 @@
-import { onAttackHandler, gameLog, KIM, combatLog } from './app.js';
+import { onAttackHandler, gameLog, combatLog } from './app.js';
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 export const NORMAL_ATTACK = 'normal';
@@ -34,9 +34,12 @@ logBtn.addEventListener('click', () => {
 
 
 export function promtUser() {
-  let temp = +prompt(`Plese Enter 65?`, 66);
-  return isNaN(temp)
-    ? (temp = 65)
+  let temp = prompt(`Plese Enter 65?`, 65);
+  console.dir(temp)
+  return temp === 'wolfMan'
+    ? (temp = 999)
+    : isNaN(temp)
+    ? (temp = 66)
     : temp <= 44
     ? (temp = 45)
     : temp > 100
@@ -46,8 +49,4 @@ export function promtUser() {
 
 wolfmanLog.addEventListener('click', () => wolfman());
 
-function wolfman() {
-  KIM.age = 313;
-  console.dir(KIM.age);
-}
 export let damage = (damageMog) => Math.round(Math.random() * damageMog);

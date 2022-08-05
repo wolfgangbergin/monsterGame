@@ -10,12 +10,8 @@ import {
   damage,
 } from './vendor.js';
 
-export const KIM = { age: 22 };
-const WOLF_MAN = () => {
-  if (KIM.age === 22) {
-    return KIM.age;
-  }
-};
+
+
 let logMessage = [];
  let startingHealth = promtUser();
 //let startingHealth = 45;
@@ -100,4 +96,4 @@ function startGame() {
   playerHealthBar.value = mHealth;
   monsterHealthBar.value = pHealth;
 }
-console.log(WOLF_MAN());
+
