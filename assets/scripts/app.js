@@ -9,14 +9,15 @@ import {
   HEAL,
   damage,
 } from './vendor.js';
-let cheatCode;
 
+let cheatCode;
 let startingHealth;
 let mHealth;
 let pHealth;
 let pBonesLife = 1;
 function kim888() {
-  startingHealth = promtUser();
+  // startingHealth = promtUser();
+  startingHealth = 45;
   if (startingHealth === 'wolfMan') {
     cheatCode = 1000;
     startingHealth = 45;
