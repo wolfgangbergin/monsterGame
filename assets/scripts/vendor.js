@@ -1,4 +1,4 @@
-import { onAttackHandler, gameLog, combatLog } from './app.js';
+import { onAttackHandler, gameLog, combatLog, pBonesLife } from './app.js';
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 export const NORMAL_ATTACK = 'normal';
@@ -22,8 +22,9 @@ strongAttackBtn.addEventListener('click', () => {
   onAttackHandler.call(this, `strong`);
 });
 healBtn.addEventListener('click', () => {
-  healBtn.disabled = true;
+  
   onAttackHandler.call(this, 'heal');
+  healBtn.disabled = !pBonesLife;
 });
 
 logBtn.addEventListener('click', () => {

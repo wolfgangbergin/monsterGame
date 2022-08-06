@@ -14,7 +14,7 @@ let cheatCode;
 let startingHealth;
 let mHealth;
 let pHealth;
-let pBonesLife = 1;
+export let pBonesLife = 1;
 function kim888() {
   // startingHealth = promtUser();
   startingHealth = 45;
@@ -31,7 +31,6 @@ function kim888() {
 }
 kim888();
 
-//let startingHealth = 45;
 
 const bonusLifeEl = document.getElementById('bonus-life');
 
@@ -48,7 +47,7 @@ export function onAttackHandler(attackMode) {
   let monsterMessage = ``;
   let combatRound = (attackMode) => {
     if (attackMode === HEAL && pBonesLife > 0 && pHealth >= 1) {
-      pBonesLife = 0;
+      pBonesLife -= 1;
       bonusLifeEl.innerHTML = pBonesLife;
       pHealth = startingHealth + cheatCode;
       playerMessage = `Player Heals to ${startingHealth + cheatCode}`;
@@ -112,3 +111,8 @@ function startGame() {
   playerHealthBar.value = mHealth;
   monsterHealthBar.value = pHealth;
 }
+// let wolfTest = 0
+
+// console.log(wolfTest)
+// console.log(!wolfTest)
+// console.log(!!wolfTest)
