@@ -34,10 +34,10 @@ logBtn.addEventListener('click', () => {
 
 
 export function promtUser() {
-  let temp = prompt(`Plese Enter 65?`, 65);
+  let temp = prompt(`Plese Enter a number`, 22);
   
   return temp === 'wolfMan'
-    ? (temp = 888)
+    ? (temp = 'wolfMan')
     : isNaN(temp)
     ? (temp = 66)
     : temp <= 44
