@@ -1,4 +1,5 @@
 import { onAttackHandler, gameLog, combatLog, pBonesLife } from './app.js';
+import {wolfman} from './test.js'
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 export const NORMAL_ATTACK = 'normal';
@@ -34,14 +35,14 @@ logBtn.addEventListener('click', () => {
 
 
 export function promtUser() {
-  let temp = prompt(`Plese Enter a number`, 22);
+  let temp = +prompt(`Plese Enter a number`, 22) ;
   
   return temp === 'wolfMan'
     ? (temp = 'wolfMan')
     : isNaN(temp)
     ? (temp = 66)
-    : temp <= 44
-    ? (temp = 45)
+    : temp <= 34
+    ? (temp = 35)
     : temp > 100
     ? (temp = 99)
     : temp;
@@ -50,3 +51,5 @@ export function promtUser() {
 wolfmanLog.addEventListener('click', () => wolfman());
 
 export let damage = (damageMog) => Math.round(Math.random() * damageMog);
+
+wolfman()

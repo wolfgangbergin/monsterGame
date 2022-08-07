@@ -16,17 +16,17 @@ let mHealth;
 let pHealth;
 export let pBonesLife = 1;
 function kim888() {
-  // startingHealth = promtUser();
-  startingHealth = 45;
+//startingHealth = promtUser();
+   startingHealth = 45;
   if (startingHealth === 'wolfMan') {
     cheatCode = 1000;
     startingHealth = 45;
     mHealth = startingHealth;
-    pHealth = startingHealth + cheatCode;
+    pHealth = cheatCode || startingHealth ;
   } else if (!isNaN(startingHealth)) {
     cheatCode = 0;
     mHealth = startingHealth;
-    pHealth = startingHealth + cheatCode;
+    pHealth = cheatCode || startingHealth ;
   }
 }
 kim888();
@@ -34,7 +34,7 @@ kim888();
 
 const bonusLifeEl = document.getElementById('bonus-life');
 
-export let combatLog = false;
+export let combatLog = true;
 
 bonusLifeEl.innerHTML = pBonesLife;
 let monsterStrongAttact = true;
@@ -49,8 +49,8 @@ export function onAttackHandler(attackMode) {
     if (attackMode === HEAL && pBonesLife > 0 && pHealth >= 1) {
       pBonesLife -= 1;
       bonusLifeEl.innerHTML = pBonesLife;
-      pHealth = startingHealth + cheatCode;
-      playerMessage = `Player Heals to ${startingHealth + cheatCode}`;
+      pHealth = cheatCode || startingHealth;
+      playerMessage = `Player Heals to ${cheatCode || startingHealth}`;
     } else if (attackMode === STRONG_ATTACK && pHealth >= 1) {
       let temp = damage(30);
       mHealth -= temp;
@@ -85,10 +85,10 @@ export function onAttackHandler(attackMode) {
   };
 
   if (mHealth <= 0 && pHealth > 0) {
-    console.log(`You Wins with ${playerHealthBar.value} Health left!!! :)`);
+    console.log(`You Wins with ${pHealth} Health left!!! :)`);
     startGame();
   } else if (pHealth <= 0 && mHealth > 0) {
-    console.log(`Monster Wins with ${monsterHealthBar.value} Health left!`);
+    console.log(`Monster Wins with ${mHealth} Health left!`);
     startGame();
   } else if (pHealth <= 0 && mHealth <= 0) {
     console.log('We have a draw! starting new game.');
@@ -107,12 +107,7 @@ function startGame() {
   strongAttackBtn.disabled = false;
   healBtn.disabled = false;
   mHealth = startingHealth;
-  pHealth = startingHealth + cheatCode;
+  pHealth = cheatCode || startingHealth;
   playerHealthBar.value = mHealth;
   monsterHealthBar.value = pHealth;
 }
-// let wolfTest = 0
-
-// console.log(wolfTest)
-// console.log(!wolfTest)
-// console.log(!!wolfTest)
