@@ -18,11 +18,10 @@ attackBtn.addEventListener('click', function () {
   onAttackHandler.call(this, `normal`);
 });
 strongAttackBtn.addEventListener('click', () => {
-  strongAttackBtn.disabled = true;
   onAttackHandler.call(this, `strong`);
+  strongAttackBtn.disabled = !0;
 });
 healBtn.addEventListener('click', () => {
-  
   onAttackHandler.call(this, 'heal');
   healBtn.disabled = !pBonesLife;
 });
