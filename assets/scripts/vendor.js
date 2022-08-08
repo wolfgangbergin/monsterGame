@@ -52,4 +52,4 @@ wolfmanLog.addEventListener('click', () => wolfman());
 
 export let damage = (damageMog) => Math.round(Math.random() * damageMog);
 
-// wolfman()
+ wolfman()

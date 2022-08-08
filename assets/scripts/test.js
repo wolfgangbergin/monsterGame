@@ -7,16 +7,21 @@ let phone = {}
 function kimFunc(){
     
     
-    const length = (true + !!'wolf' + !!{} * true + !![] + 1 + 10) * 2
+    const length = 'default888'
     return length
 }
+let tom = null
+
 
 
 let wolf = 0
 
-const testWolf = true && phone && !wolf && !`` && !!-0 && true && !NaN && !!'wolfMan' && kimFunc() 
+let userImput = 'business'
+
+// const testWolf = userImput || kimFunc() 
 // const testWolf = true && phone && !wolf && !`` && true && !NaN && !!'wolfMan' && !kimFunc() || 
 // !'wolfMAn' || !!0 || 'ed'
+const testWolf =  phone && !wolf  &&  kimFunc()
 
 
 export let wolfman = () =>{
