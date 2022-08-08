@@ -1,30 +1,24 @@
-const jojo = undefined
+const jojo = undefined;
 // console.dir(`jojo: ${jojo}`)
-let business = []
-let phone = {}
+let business = [];
+let phone = {};
 // console.log(`phone: ${phone}`)
 
-function kimFunc(){
-    
-    
-    const length = 'default888'
-    return length
+function kimFunc() {
+  const length = 'default888';
+  return length;
 }
-let tom = null
+let tom = null;
 
+let wolf = 0;
 
+let userImput = 'business';
 
-let wolf = 0
-
-let userImput = 'business'
-
-// const testWolf = userImput || kimFunc() 
-// const testWolf = true && phone && !wolf && !`` && true && !NaN && !!'wolfMan' && !kimFunc() || 
+// const testWolf = userImput || kimFunc()
+// const testWolf = true && phone && !wolf && !`` && true && !NaN && !!'wolfMan' && !kimFunc() ||
 // !'wolfMAn' || !!0 || 'ed'
-const testWolf =  phone && !wolf  &&  kimFunc()
+const testWolf = phone && !wolf && kimFunc();
 
-
-export let wolfman = () =>{
-    console.log(testWolf)
-}
-
+export let wolfman = () => {
+  console.log(testWolf);
+};
