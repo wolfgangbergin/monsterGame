@@ -36,7 +36,7 @@ logBtn.addEventListener('click', () => {
 
 export function promtUser() {
   let temp = +prompt(`Plese Enter a number`, 22) ;
-  
+ 
   return temp === 'wolfMan'
     ? (temp = 'wolfMan')
     : isNaN(temp)
@@ -52,4 +52,4 @@ wolfmanLog.addEventListener('click', () => wolfman());
 
 export let damage = (damageMog) => Math.round(Math.random() * damageMog);
 
-wolfman()
+// wolfman()
