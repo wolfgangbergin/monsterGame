@@ -1,13 +1,19 @@
 const jojo = undefined
+// console.dir(`jojo: ${jojo}`)
+let business = []
+let phone = {}
+// console.log(`phone: ${phone}`)
 
-function kim21(){
-    return 5 * 5 / 2
+function kimFunc(){
+    const length = !20 - 1
+    
+    return length
 }
 
 
 let wolf = 0
-let bergin = 'bergin'
-const testWolf = wolf && kim21()
+
+const testWolf = !!jojo || !business || phone && !wolf && !`` && true && !NaN && kimFunc() 
 
 
 export let wolfman = () =>{
