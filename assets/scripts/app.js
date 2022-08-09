@@ -16,8 +16,8 @@ let mHealth;
 let pHealth;
 export let pBonesLife = 1;
 function kim888() {
- // startingHealth = promtUser();
- startingHealth = 45;
+ startingHealth = promtUser();
+  //startingHealth = 45;
   if (startingHealth === 'wolfMan') {
     cheatCode = 1000;
     startingHealth = 45;
