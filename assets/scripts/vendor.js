@@ -34,21 +34,17 @@ logBtn.addEventListener('click', () => {
 
 export function promtUser() {
   let temp = +prompt(`Plese Enter a number`, 22);
-
-
-  // return temp === 'wolfMan'
-  //   ? (temp = 'wolfMan')
-  //   : isNaN(temp)
-  //   ? (temp = 66)
-  //   : temp <= 34
-  //   ? (temp = 35)
-  //   : temp > 100
-  //   ? (temp = 99)
-  //   : temp;
+  return temp === 'wolfMan'
+    ? (temp = 'wolfMan')
+    : isNaN(temp)
+    ? (temp = 66)
+    : temp <= 34
+    ? (temp = 35)
+    : temp > 100
+    ? (temp = 99)
+    : temp;
 }
 
 wolfmanLog.addEventListener('click', () => wolfman());
 
 export let damage = (damageMog) => Math.round(Math.random() * damageMog);
-
-
