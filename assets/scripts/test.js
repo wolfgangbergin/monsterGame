@@ -1,4 +1,4 @@
-
+let temp = 55
 export let wolfman = () => {
     switch (temp) {
         case 'wolfMan':
