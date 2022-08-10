@@ -1,9 +1,13 @@
 import { onAttackHandler, gameLog, combatLog, pBonesLife } from './app.js';
 import {  kimbo } from './test1.js';
 import {  wolfMan } from './test2.js';
-Object.prototype.log = param =>{
-  console.log(param)
+Object.prototype.log = param1 =>{
+  console.log(param1)
   }
+Object.prototype.dir = param1 =>{
+  console.dir(param1)
+  }
+  
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 export const NORMAL_ATTACK = 'normal';

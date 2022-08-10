@@ -1,3 +1,4 @@
+let JOHNNY5 = 'johnny' + ((10 * 2 / 5) + 1)
 let wolfgang = {
   pickup: 'Chevy Silverado',
   address: `16716 lola`,
@@ -6,7 +7,7 @@ let wolfgang = {
   ['plane ticket']: 'CUBA',
   car: 'fictional car',
   prop3: undefined,
-  prop4: null,
+  johnny5: JOHNNY5
 
 };
 
@@ -14,8 +15,13 @@ let wolfgang = {
 
 
 export let kimbo = () => {
-  function testFunc(param){
-    log(param)
+  function testFunc(param1){
+  dir(true === !!JOHNNY5)
+    log(`test: ${!wolfgang.johnny5 === !JOHNNY5}`)
+    switch (true){
+      case !!wolfgang.johnny5:
+        dir('Bingo')
+    }
   }
-  testFunc('wolfMan')
+  testFunc(JOHNNY5)
 };
