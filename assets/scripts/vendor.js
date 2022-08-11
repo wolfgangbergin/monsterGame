@@ -1,6 +1,6 @@
 import { onAttackHandler, gameLog, combatLog, pBonesLife, WOLF_MAN } from './app.js';
-import { kimbo } from './test1.js';
-import { wolfMan } from './test2.js';
+import { kimbo } from './kimbo.js';
+import { wolfMan } from './wolfMan.js';
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 export const NORMAL_ATTACK = 'normal';
@@ -53,5 +53,5 @@ export function promtUser() {
 wolfmanLog.addEventListener('click', () => wolfman());
 
 export let damage = (damageMog) => Math.round(Math.random() * damageMog);
-//wolfMan()
+// wolfMan(47)
 // kimbo();
