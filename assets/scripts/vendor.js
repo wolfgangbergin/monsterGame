@@ -36,9 +36,7 @@ logBtn.addEventListener('click', () => {
 
 export function promtUser() {
   //let temp = +prompt(`Plese Enter a number`, 22);
-
   let temp = 22;
-
   return temp === 'wolfMan'
     ? (temp = 'wolfMan')
     : isNaN(temp)
