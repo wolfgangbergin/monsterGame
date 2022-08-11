@@ -1,7 +1,6 @@
-import { onAttackHandler, gameLog, combatLog, pBonesLife } from './app.js';
+import { onAttackHandler, gameLog, combatLog, pBonesLife, WOLF_MAN } from './app.js';
 import { kimbo } from './test1.js';
 import { wolfMan } from './test2.js';
-
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 export const NORMAL_ATTACK = 'normal';
@@ -35,10 +34,10 @@ logBtn.addEventListener('click', () => {
 });
 
 export function promtUser() {
-  let temp = 41;
+  let temp = 22
   switch (true) {
-    case temp === 'wolfMan':
-      return temp;
+    case temp === WOLF_MAN:
+      return WOLF_MAN;
     case isNaN(temp):
       log(`invalid entering 67`);
       return 67;

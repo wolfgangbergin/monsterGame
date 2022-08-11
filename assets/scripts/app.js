@@ -8,8 +8,9 @@ import {
   STRONG_ATTACK,
   HEAL,
   damage,
+  
 } from './vendor.js';
-
+export const WOLF_MAN = 'wolfMan'
 let cheatCode;
 let startingHealth;
 let mHealth;
@@ -17,7 +18,8 @@ let pHealth;
 export let pBonesLife = 1;
 function kim888() {
   startingHealth = promtUser();
-  if (startingHealth === 'wolfMan') {
+  //log(startingHealth)
+  if (startingHealth === WOLF_MAN) {
     cheatCode = 1000;
     startingHealth = 45;
     mHealth = startingHealth;
