@@ -19,16 +19,20 @@ export let pBonesLife = 1;
 function kim888() {
   startingHealth = promtUser();
   //log(startingHealth)
-  if (startingHealth === WOLF_MAN) {
-    cheatCode = 1000;
+  switch(true){
+    case startingHealth === WOLF_MAN:
+      cheatCode = 1000;
     startingHealth = 45;
     mHealth = startingHealth;
     pHealth = cheatCode || startingHealth;
-  } else if (!isNaN(startingHealth)) {
-    cheatCode = 0;
+    break;
+    case !isNaN(startingHealth):
+      cheatCode = 0;
     mHealth = startingHealth;
     pHealth = cheatCode || startingHealth;
+    break; 
   }
+ 
 }
 kim888();
 

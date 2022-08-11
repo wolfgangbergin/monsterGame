@@ -34,7 +34,7 @@ logBtn.addEventListener('click', () => {
 });
 
 export function promtUser() {
-  let temp = 22
+  let temp = 'thrthrththr';
   switch (true) {
     case temp === WOLF_MAN:
       return WOLF_MAN;
@@ -54,4 +54,4 @@ wolfmanLog.addEventListener('click', () => wolfman());
 
 export let damage = (damageMog) => Math.round(Math.random() * damageMog);
 // wolfMan(47)
-// kimbo();
+ //kimbo();
