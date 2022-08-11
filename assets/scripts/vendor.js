@@ -1,12 +1,8 @@
+
 import { onAttackHandler, gameLog, combatLog, pBonesLife } from './app.js';
 import { kimbo } from './test1.js';
 import { wolfMan } from './test2.js';
-Object.prototype.log = (param1) => {
-  console.log(param1);
-};
-Object.prototype.dir = (param1) => {
-  console.dir(param1);
-};
+
 
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
@@ -41,8 +37,10 @@ logBtn.addEventListener('click', () => {
 });
 
 export function promtUser() {
-  let temp = +prompt(`Plese Enter a number`, 22);
-
+  //let temp = +prompt(`Plese Enter a number`, 22);
+  let temp = 22;
+  
+  
   return temp === 'wolfMan'
     ? (temp = 'wolfMan')
     : isNaN(temp)
@@ -58,4 +56,4 @@ wolfmanLog.addEventListener('click', () => wolfman());
 
 export let damage = (damageMog) => Math.round(Math.random() * damageMog);
 //wolfMan()
-kimbo();
+//kimbo();

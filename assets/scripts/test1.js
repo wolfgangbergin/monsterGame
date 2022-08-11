@@ -28,9 +28,9 @@ export let kimbo = () => {
   
   function innerFunc(param1) {
     switch (true) {
-      case 21 > testAge:
-        dir(`can't `);
-      
+      case 'car' in wolfgang:
+        dir(`yes`);
+      break;
       case false:
         dir(` buy `);
         
