@@ -34,19 +34,20 @@ logBtn.addEventListener('click', () => {
 });
 
 export function promtUser() {
+  
   let temp = WOLF_MAN;
   switch (true) {
     case temp === WOLF_MAN:
-      return WOLF_MAN;
+      return [1000, 45];
     case isNaN(temp):
       log(`invalid entering 67`);
-      return 67;
+      return [67, 67];
     case temp <= 34:
-      return 35;
+      return [35, 35];
     case temp > 100:
-      return 99;
+      return [99, 99];
     default:
-      return temp;
+      return [temp, temp];
   }
 }
 

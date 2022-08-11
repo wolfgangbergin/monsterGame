@@ -11,30 +11,12 @@ import {
   
 } from './vendor.js';
 export const WOLF_MAN = 'wolfMan'
-let cheatCode;
-let startingHealth;
-let mHealth;
-let pHealth;
+
+let [pStartingHealth, mStartingHealth] = promtUser();
+
+let pHealth = pStartingHealth;
+let mHealth = mStartingHealth;
 export let pBonesLife = 1;
-function kim888() {
-  startingHealth = promtUser();
-  //log(startingHealth)
-  switch(true){
-    case startingHealth === WOLF_MAN:
-      cheatCode = 1000;
-    startingHealth = 45;
-    mHealth = startingHealth;
-    pHealth = cheatCode || startingHealth;
-    break;
-    case !isNaN(startingHealth):
-      cheatCode = 0;
-    mHealth = startingHealth;
-    pHealth = cheatCode || startingHealth;
-    break; 
-  }
- 
-}
-kim888();
 
 const bonusLifeEl = document.getElementById('bonus-life');
 
@@ -53,8 +35,8 @@ export function onAttackHandler(attackMode) {
     if (attackMode === HEAL && pBonesLife > 0 && pHealth >= 1) {
       pBonesLife -= 1;
       bonusLifeEl.innerHTML = pBonesLife;
-      pHealth = cheatCode || startingHealth;
-      playerMessage = `Player Heals to ${cheatCode || startingHealth}`;
+      pHealth =  pStartingHealth;
+      playerMessage = `Player Heals to ${ pStartingHealth}`;
     } else if (attackMode === STRONG_ATTACK && pHealth >= 1) {
       let temp = DAMAGE(30);
       mHealth -= temp;
@@ -65,9 +47,9 @@ export function onAttackHandler(attackMode) {
       playerMessage = `Player attack dose ${temp}`;
     }
     if (mHealth < 20 && monsterHeal && mHealth >= 1) {
-      mHealth = startingHealth;
+      mHealth = mStartingHealth;
       monsterHeal = false;
-      monsterMessage = `Monster Heals to ${startingHealth}`;
+      monsterMessage = `Monster Heals to ${mStartingHealth}`;
     } else if (pHealth < 15 && monsterStrongAttact && mHealth >= 1) {
       let temp = DAMAGE(30);
       pHealth -= temp;
@@ -82,10 +64,10 @@ export function onAttackHandler(attackMode) {
     if (combatLog) {
       console.dir(`${playerMessage} and ${monsterMessage}!`);
     }
-    monsterHealthBar.max = startingHealth;
-    playerHealthBar.max = startingHealth;
-    monsterHealthBar.value = mHealth;
+    playerHealthBar.max = pStartingHealth;
+    monsterHealthBar.max = mStartingHealth;
     playerHealthBar.value = pHealth;
+    monsterHealthBar.value = mHealth;
   };
 
   if (mHealth <= 0 && pHealth > 0) {
@@ -102,7 +84,7 @@ export function onAttackHandler(attackMode) {
   }
 }
 function startGame() {
-  kim888();
+  
 
   pBonesLife = 1;
   bonusLifeEl.innerHTML = pBonesLife;
@@ -110,8 +92,8 @@ function startGame() {
   monsterHeal = true;
   strongAttackBtn.disabled = false;
   healBtn.disabled = false;
-  mHealth = startingHealth;
-  pHealth = cheatCode || startingHealth;
+  pHealth = pStartingHealth;
+  mHealth = mStartingHealth;
   playerHealthBar.value = mHealth;
   monsterHealthBar.value = pHealth;
 }
