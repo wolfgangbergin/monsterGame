@@ -16,21 +16,19 @@ let mHealth;
 let pHealth;
 export let pBonesLife = 1;
 function kim888() {
- startingHealth = promtUser();
- 
+  startingHealth = promtUser();
   if (startingHealth === 'wolfMan') {
     cheatCode = 1000;
     startingHealth = 45;
     mHealth = startingHealth;
-    pHealth = cheatCode || startingHealth ;
+    pHealth = cheatCode || startingHealth;
   } else if (!isNaN(startingHealth)) {
     cheatCode = 0;
     mHealth = startingHealth;
-    pHealth = cheatCode || startingHealth ;
+    pHealth = cheatCode || startingHealth;
   }
 }
 kim888();
-
 
 const bonusLifeEl = document.getElementById('bonus-life');
 
