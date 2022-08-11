@@ -35,17 +35,20 @@ logBtn.addEventListener('click', () => {
 });
 
 export function promtUser() {
-  //let temp = +prompt(`Plese Enter a number`, 22);
-  let temp = 22;
-  return temp === 'wolfMan'
-    ? (temp = 'wolfMan')
-    : isNaN(temp)
-    ? (temp = 66)
-    : temp <= 34
-    ? (temp = 35)
-    : temp > 100
-    ? (temp = 99)
-    : temp;
+  let temp = 41;
+  switch (true) {
+    case temp === 'wolfMan':
+      return temp;
+    case isNaN(temp):
+      log(`invalid entering 67`);
+      return 67;
+    case temp <= 34:
+      return 35;
+    case temp > 100:
+      return 99;
+    default:
+      return temp;
+  }
 }
 
 wolfmanLog.addEventListener('click', () => wolfman());
