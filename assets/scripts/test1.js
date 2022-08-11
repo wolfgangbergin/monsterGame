@@ -14,33 +14,28 @@ let wolfgang = {
     }
   },
   legalAge(param1) {
-    switch(true){
+    switch (true) {
       case this.legelAge <= param1:
-        return true
+        return true;
         break;
     }
-    
-  }
+  },
 };
 
 export let kimbo = () => {
-  let testAge = 21
-  
+  let testAge = 12;
   function innerFunc(param1) {
     switch (true) {
-      case 'car' in wolfgang:
-        dir(`yes`);
-      break;
+      case 21 > testAge:
+        dir(`can't `);
       case false:
         dir(` buy `);
-        
-      
-        case false:
-          dir(`alcohol`)
-          break;
-          case 21 <= testAge:
-          dir(`good to go!!`)
-          break;
+      case false:
+        dir(`alcohol.`);
+        break;
+      case 21 <= testAge:
+        dir(`good to go!!`);
+        break;
       default:
         log('no Condition met!');
         break;
