@@ -28,6 +28,7 @@ export let kimbo = () => {
     switch (true) {
       case 21 > testAge:
         dir(`can't `);
+      
       case false:
         dir(` buy `);
       case false:
