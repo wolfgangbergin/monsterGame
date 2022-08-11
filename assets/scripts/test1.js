@@ -1,27 +1,50 @@
-let JOHNNY5 = 'johnny' + ((10 * 2 / 5) + 1)
+let JOHNNY5 = 'johnny' + ((10 * 2) / 5 + 1);
 let wolfgang = {
   pickup: 'Chevy Silverado',
   address: `16716 lola`,
-  age: 47,
+  legelAge: 21,
   ['peanut butter']: 'all natural',
   ['plane ticket']: 'CUBA',
   car: 'fictional car',
   prop3: undefined,
-  johnny5: JOHNNY5
-
+  johnny5: JOHNNY5,
+  testAge(param1) {
+    if (this.legelAge > param1) {
+      return true;
+    }
+  },
+  legalAge(param1) {
+    switch(true){
+      case this.legelAge <= param1:
+        return true
+        break;
+    }
+    
+  }
 };
 
-
-
-
 export let kimbo = () => {
-  function testFunc(param1){
-  dir(true === !!JOHNNY5)
-    log(`test: ${!wolfgang.johnny5 === !JOHNNY5}`)
-    switch (true){
-      case !!wolfgang.johnny5:
-        dir('Bingo')
+  let testAge = 21
+  
+  function innerFunc(param1) {
+    switch (true) {
+      case 21 > testAge:
+        dir(`can't `);
+      
+      case false:
+        dir(` buy `);
+        
+      
+        case false:
+          dir(`alcohol`)
+          break;
+          case 21 <= testAge:
+          dir(`good to go!!`)
+          break;
+      default:
+        log('no Condition met!');
+        break;
     }
   }
-  testFunc(JOHNNY5)
+  innerFunc(JOHNNY5);
 };
