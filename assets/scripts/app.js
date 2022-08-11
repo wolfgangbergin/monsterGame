@@ -7,7 +7,7 @@ import {
   NORMAL_ATTACK,
   STRONG_ATTACK,
   HEAL,
-  damage,
+  DAMAGE,
   
 } from './vendor.js';
 export const WOLF_MAN = 'wolfMan'
@@ -56,11 +56,11 @@ export function onAttackHandler(attackMode) {
       pHealth = cheatCode || startingHealth;
       playerMessage = `Player Heals to ${cheatCode || startingHealth}`;
     } else if (attackMode === STRONG_ATTACK && pHealth >= 1) {
-      let temp = damage(30);
+      let temp = DAMAGE(30);
       mHealth -= temp;
       playerMessage = `Player strong attack dose ${temp}!`;
     } else if (attackMode === NORMAL_ATTACK && pHealth >= 1) {
-      let temp = damage(10);
+      let temp = DAMAGE(10);
       mHealth -= temp;
       playerMessage = `Player attack dose ${temp}`;
     }
@@ -69,12 +69,12 @@ export function onAttackHandler(attackMode) {
       monsterHeal = false;
       monsterMessage = `Monster Heals to ${startingHealth}`;
     } else if (pHealth < 15 && monsterStrongAttact && mHealth >= 1) {
-      let temp = damage(30);
+      let temp = DAMAGE(30);
       pHealth -= temp;
       monsterStrongAttact = false;
       monsterMessage = `Monster strong attack dose ${temp}!`;
     } else {
-      let temp = damage(10);
+      let temp = DAMAGE(10);
       monsterMessage = `Monster attack dose ${temp}`;
       pHealth -= temp;
     }
