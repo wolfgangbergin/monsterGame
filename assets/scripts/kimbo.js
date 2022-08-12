@@ -26,7 +26,7 @@ export let kimbo = () => {
   let testAge = 12;
   function innerFunc(param1) {
     switch (true) {
-      case 21 > testAge:
+      case !!(true && true && true):
         dir(`can't `);
       
       case false:
