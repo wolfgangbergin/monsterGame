@@ -2,45 +2,41 @@ let JOHNNY5 = 'johnny' + ((10 * 2) / 5 + 1);
 let wolfgang = {
   pickup: 'Chevy Silverado',
   address: `16716 lola`,
-  legelAge: 21,
+  legelAge: 16,
   ['peanut butter']: 'all natural',
   ['plane ticket']: 'CUBA',
   car: 'fictional car',
   prop3: undefined,
   johnny5: JOHNNY5,
-  testAge(param1) {
-    if (this.legelAge > param1) {
-      return true;
-    }
-  },
   legalAge(param1) {
     switch (true) {
       case this.legelAge <= param1:
         return true;
-        break;
+    
     }
   },
 };
+let rum = {bottles: 4}
 
 export let kimbo = () => {
-  let testAge = 12;
-  function innerFunc(param1) {
+  let testAge = 6;
+  function testFunc(param1) {
     switch (true) {
-      case !!(true && true && true):
-        dir(`can't `);
+      case !(wolfgang.legalAge(testAge)):
+        log(`u are not Old enough to drink!`);
+        return;
+      case (param1 && wolfgang.legalAge(testAge)):
+        log('Have');
+      case (param1 && wolfgang.legalAge(testAge)):
+        log('some');
+      case (param1 && wolfgang.legalAge(testAge)):
+        log(`rum we have ${param1} bottles left!`);
+        return;
       
-      case false:
-        dir(` buy `);
-      case false:
-        dir(`alcohol.`);
-        break;
-      case 21 <= testAge:
-        dir(`good to go!!`);
-        break;
-      default:
-        log('no Condition met!');
-        break;
+        case !(param1):
+          log(` We are out of rum!`);
+          return;
     }
   }
-  innerFunc(JOHNNY5);
+  testFunc(rum.bottles);
 };
