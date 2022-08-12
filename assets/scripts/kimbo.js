@@ -12,31 +12,21 @@ let wolfgang = {
     switch (true) {
       case this.legelAge <= param1:
         return true;
-    
     }
   },
 };
-let rum = {bottles: 4}
+let rum = { bottles: 2 };
 
 export let kimbo = () => {
-  let testAge = 6;
+  let testAge = 26;
   function testFunc(param1) {
-    switch (true) {
-      case !(wolfgang.legalAge(testAge)):
-        log(`u are not Old enough to drink!`);
-        return;
-      case (param1 && wolfgang.legalAge(testAge)):
-        log('Have');
-      case (param1 && wolfgang.legalAge(testAge)):
-        log('some');
-      case (param1 && wolfgang.legalAge(testAge)):
-        log(`rum we have ${param1} bottles left!`);
-        return;
-      
-        case !(param1):
-          log(` We are out of rum!`);
-          return;
-    }
+    !wolfgang.legalAge(testAge)
+      ? log(`u are not Old enough to drink!`)
+      : param1 && wolfgang.legalAge(testAge)
+      ? log(`Have some rum we have ${param1} bottles left!`)
+      : !param1
+      ? log(` We are out of rum!`)
+      :  log(error);
   }
   testFunc(rum.bottles);
 };
