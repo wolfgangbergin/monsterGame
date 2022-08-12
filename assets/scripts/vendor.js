@@ -1,4 +1,10 @@
-import { onAttackHandler, gameLog, combatLog, pBonesLife, WOLF_MAN } from './app.js';
+import {
+  onAttackHandler,
+  gameLog,
+  combatLog,
+  pBonesLife,
+  WOLF_MAN,
+} from './app.js';
 import { kimbo } from './kimbo.js';
 import { wolfMan } from './wolfMan.js';
 export const playerHealthBar = document.getElementById('player-health');
@@ -37,16 +43,16 @@ export function promtUser() {
   let temp = WOLF_MAN;
   switch (true) {
     case temp === WOLF_MAN:
-      return WOLF_MAN;
+      return [1000, 45];
     case isNaN(temp):
       log(`invalid entering 67`);
-      return 67;
+      return [67, 67];
     case temp <= 34:
-      return 35;
+      return [35, 35];
     case temp > 100:
-      return 99;
+      return [99, 99];
     default:
-      return temp;
+      return [temp, temp];
   }
 }
 
@@ -54,4 +60,4 @@ wolfmanLog.addEventListener('click', () => wolfman());
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
 // wolfMan(47)
- //kimbo();
+//kimbo();
