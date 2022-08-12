@@ -30,34 +30,34 @@ export let gameLog = () => (combatLog = !combatLog);
 export function onAttackHandler(attackMode) {
   let playerMessage = ``;
   let monsterMessage = ``;
+
   let combatRound = (attackMode) => {
-    if (attackMode === HEAL && pBonesLife > 0 && pHealth >= 1) {
-      pBonesLife -= 1;
-      bonusLifeEl.innerHTML = pBonesLife;
-      pHealth = pStartingHealth;
-      playerMessage = `Player Heals to ${pStartingHealth}`;
-    } else if (attackMode === STRONG_ATTACK && pHealth >= 1) {
-      let temp = DAMAGE(30);
-      mHealth -= temp;
-      playerMessage = `Player strong attack dose ${temp}!`;
-    } else if (attackMode === NORMAL_ATTACK && pHealth >= 1) {
-      let temp = DAMAGE(10);
-      mHealth -= temp;
-      playerMessage = `Player attack dose ${temp}`;
+    let pDamage;
+    let mDamage;
+    switch (true) {
+      case attackMode === HEAL && pBonesLife > 0 && pHealth >= 1:
+        bonusLifeEl.innerHTML = pBonesLife -= 1;
+        playerMessage = `Player Heals to ${(pHealth = pStartingHealth)}`;
+        break;
+      case attackMode === STRONG_ATTACK && pHealth >= 1:
+        mHealth -= pDamage = DAMAGE(30);
+        playerMessage = `Player strong attack dose ${(pDamage = DAMAGE(30))}!`;
+        break;
+      case attackMode === NORMAL_ATTACK && pHealth >= 1:
+        mHealth -= pDamage = DAMAGE(10);
+        playerMessage = `Player attack dose ${(pDamage = DAMAGE(10))}`;
+        break;
     }
     if (mHealth < 20 && monsterHeal && mHealth >= 1) {
-      mHealth = mStartingHealth;
       monsterHeal = false;
-      monsterMessage = `Monster Heals to ${mStartingHealth}`;
+      monsterMessage = `Monster Heals to ${(mHealth = mStartingHealth)}`;
     } else if (pHealth < 15 && monsterStrongAttact && mHealth >= 1) {
-      let temp = DAMAGE(30);
-      pHealth -= temp;
       monsterStrongAttact = false;
-      monsterMessage = `Monster strong attack dose ${temp}!`;
+      pHealth -= mDamage = DAMAGE(30);
+      monsterMessage = `Monster strong attack dose ${(mDamage = DAMAGE(30))}!`;
     } else {
-      let temp = DAMAGE(10);
-      monsterMessage = `Monster attack dose ${temp}`;
-      pHealth -= temp;
+      pHealth -= (mDamage = DAMAGE(10));
+      monsterMessage = `Monster attack dose ${(mDamage = DAMAGE(10))}`;
     }
 
     if (combatLog) {
