@@ -1,4 +1,10 @@
-import { onAttackHandler, gameLog, combatLog, pBonesLife, WOLF_MAN } from './app.js';
+import {
+  onAttackHandler,
+  gameLog,
+  combatLog,
+  pBonesLife,
+  WOLF_MAN,
+} from './app.js';
 import { kimbo } from './kimbo.js';
 import { wolfMan } from './wolfMan.js';
 export const playerHealthBar = document.getElementById('player-health');
@@ -34,7 +40,6 @@ logBtn.addEventListener('click', () => {
 });
 
 export function promtUser() {
-  
   let temp = WOLF_MAN;
   switch (true) {
     case temp === WOLF_MAN:
@@ -55,4 +60,4 @@ wolfmanLog.addEventListener('click', () => wolfman());
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
 // wolfMan(47)
- //kimbo();
+//kimbo();

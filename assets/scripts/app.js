@@ -8,9 +8,8 @@ import {
   STRONG_ATTACK,
   HEAL,
   DAMAGE,
-  
 } from './vendor.js';
-export const WOLF_MAN = 'wolfMan'
+export const WOLF_MAN = 'wolfMan';
 
 let [pStartingHealth, mStartingHealth] = promtUser();
 
@@ -35,8 +34,8 @@ export function onAttackHandler(attackMode) {
     if (attackMode === HEAL && pBonesLife > 0 && pHealth >= 1) {
       pBonesLife -= 1;
       bonusLifeEl.innerHTML = pBonesLife;
-      pHealth =  pStartingHealth;
-      playerMessage = `Player Heals to ${ pStartingHealth}`;
+      pHealth = pStartingHealth;
+      playerMessage = `Player Heals to ${pStartingHealth}`;
     } else if (attackMode === STRONG_ATTACK && pHealth >= 1) {
       let temp = DAMAGE(30);
       mHealth -= temp;
@@ -84,8 +83,6 @@ export function onAttackHandler(attackMode) {
   }
 }
 function startGame() {
-  
-
   pBonesLife = 1;
   bonusLifeEl.innerHTML = pBonesLife;
   monsterStrongAttact = true;
@@ -94,6 +91,6 @@ function startGame() {
   healBtn.disabled = false;
   pHealth = pStartingHealth;
   mHealth = mStartingHealth;
-  playerHealthBar.value = mHealth;
-  monsterHealthBar.value = pHealth;
+  playerHealthBar.value = pHealth;
+  monsterHealthBar.value = mHealth;
 }
