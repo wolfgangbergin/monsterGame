@@ -6,7 +6,7 @@ export let wolfMan = () => {
     console.log(`i: ${array[i]}`);
   if (i === 5) {
     
-    //  return;
+   return;
   } else
    if (!!i) {
     wolfMan();
