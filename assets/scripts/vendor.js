@@ -4,6 +4,7 @@ import {
   combatLog,
   pBonesLife,
   WOLF_MAN,
+  
 } from './app.js';
 import { kimbo } from './kimbo.js';
 import { wolfMan } from './wolfMan.js';
@@ -35,6 +36,7 @@ healBtn.addEventListener('click', () => {
 });
 
 logBtn.addEventListener('click', () => {
+ 
   combatLog ? (logBtn.innerHTML = SHOW_LOG) : (logBtn.innerHTML = HIDE_LOG);
   gameLog();
 });
@@ -60,4 +62,4 @@ wolfmanLog.addEventListener('click', () => wolfman());
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
 // wolfMan(47)
-//kimbo();
+// kimbo();
