@@ -10,7 +10,7 @@ import {
   DAMAGE,
 } from './vendor.js';
 export const WOLF_MAN = 'wolfMan';
-
+let logArray = [];
 let [pStartingHealth, mStartingHealth] = promtUser();
 
 let pHealth = pStartingHealth;
@@ -19,7 +19,7 @@ export let pBonesLife = 1;
 
 const bonusLifeEl = document.getElementById('bonus-life');
 
-export let combatLog = true;
+export let combatLog = false;
 
 bonusLifeEl.innerHTML = pBonesLife;
 let monsterStrongAttact = true;
@@ -56,12 +56,16 @@ export function onAttackHandler(attackMode) {
       pHealth -= mDamage = DAMAGE(30);
       monsterMessage = `Monster strong attack dose ${(mDamage = DAMAGE(30))}!`;
     } else {
-      pHealth -= (mDamage = DAMAGE(10));
+      pHealth -= mDamage = DAMAGE(10);
       monsterMessage = `Monster attack dose ${(mDamage = DAMAGE(10))}`;
     }
 
+    logArray.push(`${playerMessage} and ${monsterMessage}!`);
+
     if (combatLog) {
-      console.dir(`${playerMessage} and ${monsterMessage}!`);
+      log(logArray[0]);
+
+      logArray = [];
     }
     playerHealthBar.max = pStartingHealth;
     monsterHealthBar.max = mStartingHealth;
@@ -70,19 +74,21 @@ export function onAttackHandler(attackMode) {
   };
 
   if (mHealth <= 0 && pHealth > 0) {
+    startGame();
     console.log(`You Wins with ${pHealth} Health left!!! :)`);
-    startGame();
   } else if (pHealth <= 0 && mHealth > 0) {
+    startGame();
     console.log(`Monster Wins with ${mHealth} Health left!`);
-    startGame();
   } else if (pHealth <= 0 && mHealth <= 0) {
-    console.log('We have a draw! starting new game.');
     startGame();
+    console.log('We have a draw! starting new game.');
   } else {
     combatRound.call(this, attackMode);
   }
 }
 function startGame() {
+  console.clear();
+  let logArray = [];
   pBonesLife = 1;
   bonusLifeEl.innerHTML = pBonesLife;
   monsterStrongAttact = true;

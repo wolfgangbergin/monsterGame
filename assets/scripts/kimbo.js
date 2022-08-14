@@ -8,25 +8,39 @@ let wolfgang = {
   car: 'fictional car',
   prop3: undefined,
   johnny5: JOHNNY5,
-  legalAge(param1) {
+  legalAgeMeth(param1) {
     switch (true) {
       case this.legelAge <= param1:
         return true;
     }
   },
 };
-let rum = { bottles: 2 };
+
+let array = ['a', 'b', 'c'];
+let i = 20;
+for (let y = 10; y , i; y--) {
+  if (i > 12) {
+    break;
+  } else if (!!(i === 5 && y === 'wolfMan')) {
+    continue;
+  }
+
+  log(`i: ${i}`);
+  log(`y: ${y}`);
+  i--;
+}
+let rum = 'wolf' && 44;
 
 export let kimbo = () => {
   let testAge = 26;
-  function testFunc(param1) {
-    !wolfgang.legalAge(testAge)
+  function testFunc(param1 = 91) {
+    !wolfgang.legalAgeMeth(testAge)
       ? log(`u are not Old enough to drink!`)
-      : param1 && wolfgang.legalAge(testAge)
+      : !!(param1 && wolfgang.legalAgeMeth(testAge))
       ? log(`Have some rum we have ${param1} bottles left!`)
       : !param1
       ? log(` We are out of rum!`)
-      :  log(error);
+      : log(error);
   }
-  testFunc(rum.bottles);
+  testFunc(rum);
 };
