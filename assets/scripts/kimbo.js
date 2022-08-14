@@ -17,19 +17,22 @@ let wolfgang = {
 };
 
 let array = ['a', 'b', 'c'];
-let i = 20;
-for (let y = 10; y , i; y--) {
-  if (i > 12) {
+
+let testJo = 0
+for (let y = 5; y ; y--) {
+ testJo += 1
+  if (y > 22) {
     break;
-  } else if (!!(i === 5 && y === 'wolfMan')) {
+  } else if (!!(y === 'wolfMan')) {
     continue;
   }
 
-  log(`i: ${i}`);
-  log(`y: ${y}`);
-  i--;
+ 
+  // log(`y: ${y}`);
+  // log(testJo)
+ 
 }
-let rum = 'wolf' && 44;
+let rum =  44;
 
 export let kimbo = () => {
   let testAge = 26;

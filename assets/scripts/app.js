@@ -10,6 +10,7 @@ import {
   DAMAGE,
 } from './vendor.js';
 export const WOLF_MAN = 'wolfMan';
+
 let logArray = [];
 let [pStartingHealth, mStartingHealth] = promtUser();
 
@@ -19,7 +20,7 @@ export let pBonesLife = 1;
 
 const bonusLifeEl = document.getElementById('bonus-life');
 
-export let combatLog = false;
+export let combatLog = true;
 
 bonusLifeEl.innerHTML = pBonesLife;
 let monsterStrongAttact = true;
@@ -63,7 +64,10 @@ export function onAttackHandler(attackMode) {
     logArray.push(`${playerMessage} and ${monsterMessage}!`);
 
     if (combatLog) {
-      log(logArray[0]);
+      for (const value of logArray) {
+        log(value);
+      }
+     
 
       logArray = [];
     }

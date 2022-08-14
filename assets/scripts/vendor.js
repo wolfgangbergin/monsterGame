@@ -61,5 +61,5 @@ export function promtUser() {
 wolfmanLog.addEventListener('click', () => wolfman());
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
-// wolfMan(47)
-// kimbo();
+ wolfMan(47)
+ //kimbo();
