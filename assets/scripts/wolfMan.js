@@ -1,7 +1,19 @@
+let array = 'wolfbmanZW';
+let key = 0 ;
+export let wolfMan = () => {
+  
+    // console.log(`${key}`)
+    console.log(`${key}: ${array[key]}`);
+  if (key === 3) {
+    
+key = 4
 
-
-export let wolfMan = (param1) => {
- 
-    let temp = 17;
-    log(param1)
+  } 
+  key++;
+   if (!(key === 8 )) {
+    wolfMan();
+    
+  }
+  
+  return ;
 };
