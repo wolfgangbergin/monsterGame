@@ -1,5 +1,7 @@
+let  names = ['wolfman', 'bergin']
+names.age = 47
 let JOHNNY5 = 'johnny' + ((10 * 2) / 5 + 1);
-let wolfgang = {
+let wolfObj = {
   pickup: 'Chevy Silverado',
   address: `16716 lola`,
   legelAge: 16,
@@ -16,30 +18,32 @@ let wolfgang = {
   },
 };
 
-let array = ['a', 'b', 'c'];
+let wolfArray = 'wolfgang';
 
 let testJo = 0
-for (let y = 5; y ; y--) {
- testJo += 1
-  if (y > 22) {
-    break;
-  } else if (!!(y === 'wolfMan')) {
-    continue;
-  }
-
+for (const value of wolfArray) {
  
-  // log(`y: ${y}`);
-  // log(testJo)
+ 
+  //log(`value: ${value}`);
+  
  
 }
+for (const key in wolfObj) {
+ 
+ 
+  //console.log(`key: ${key}`);
+  
+  testJo ++
+}
+
 let rum =  44;
 
 export let kimbo = () => {
   let testAge = 26;
   function testFunc(param1 = 91) {
-    !wolfgang.legalAgeMeth(testAge)
+    !wolfObj.legalAgeMeth(testAge)
       ? log(`u are not Old enough to drink!`)
-      : !!(param1 && wolfgang.legalAgeMeth(testAge))
+      : !!(param1 && wolfObj.legalAgeMeth(testAge))
       ? log(`Have some rum we have ${param1} bottles left!`)
       : !param1
       ? log(` We are out of rum!`)

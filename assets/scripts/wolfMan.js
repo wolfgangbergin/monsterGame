@@ -1,16 +1,19 @@
-let array = ['a', 'b', 'c','d', 'e', 'f','g', 'h', 'i','j',];
-let i = 8;
+let array = 'wolfbmanZW';
+let key = 0 ;
 export let wolfMan = () => {
-  i--;
-    console.log(`${i}`)
-    console.log(`i: ${array[i]}`);
-  if (i === 5) {
+  
+    // console.log(`${key}`)
+    console.log(`${key}: ${array[key]}`);
+  if (key === 3) {
     
-   return;
-  } else
-   if (!!i) {
+key = 4
+
+  } 
+  key++;
+   if (!(key === 8 )) {
     wolfMan();
     
   }
-    console.log(`i: ${array[i]}`);
+  
+  return ;
 };

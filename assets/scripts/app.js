@@ -61,11 +61,14 @@ export function onAttackHandler(attackMode) {
       monsterMessage = `Monster attack dose ${(mDamage = DAMAGE(10))}`;
     }
 
-    logArray.push(`${playerMessage} and ${monsterMessage}!`);
+    logArray.push({sentence: `${playerMessage} and ${monsterMessage}!` });
 
     if (combatLog) {
-      for (const value of logArray) {
-        log(value);
+      for (const i of logArray) {
+      
+        for (const key in i){
+          console.log(i[key])
+        }
       }
      
 
