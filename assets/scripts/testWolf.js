@@ -9,5 +9,3 @@ export function testWolf() {
     }
   } while (true);
 }
-8
-2
