@@ -1,7 +1,7 @@
-let  names = ['wolfman', 'bergin']
+ let  names = ['wolfman', 'bergin']
 names.age = 47
 let JOHNNY5 = 'johnny' + ((10 * 2) / 5 + 1);
-let wolfObj = {
+export let wolfObj = {
   pickup: 'Chevy Silverado',
   address: `16716 lola`,
   legelAge: 16,

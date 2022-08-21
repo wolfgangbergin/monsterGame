@@ -15,7 +15,7 @@ Object.defineProperty(names, 'phoneNumber', {
   writable: true,
 });
 
-let middleEarth = {
+export let middleEarth = {
   towns: ['detorit', 'ann arbor'],
   races: ['black', 'white', 'brown'],
 };

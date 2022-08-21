@@ -10,6 +10,9 @@ import { kimbo } from './kimbo.js';
 import { wolfMan } from './wolfMan.js';
 import { steve } from './steve.js';
 import { simpleGenerator } from './simpleGenerator.js';
+import { wolfObj } from './kimbo.js';
+import { middleEarth } from './steve.js';
+import { testWolf, } from './testWolf.js';
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 export const NORMAL_ATTACK = 'normal';
@@ -59,55 +62,46 @@ export function promtUser() {
   }
 }
 
-wolfmanLog.addEventListener('click', () => wolfman());
+wolfmanLog.addEventListener('click', () => testWolf());
+//testWolf()
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
+
+
 //wolfMan(47)
 //kimbo();
 //steve();
 
-const wolfArray = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'default',
-  'end',
-];
-const wolfGen = simpleGenerator(wolfArray);
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
+// const wolfArray = [
+//   'a',
+//   'b',
+//   'c',
+//   'd',
+//   'e',
+//   'f',
+//   'g',
+//   'h',
+//   'i',
+//   'j',
+//   'k',
+//   'default',
+//   'end',
+// ];
+// const wolfGen = simpleGenerator(wolfObj);
 
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
-// console.log(wolfGen.return())
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
-// console.log(`wolfTest: ${wolfGen.next(1)}`)
+// function testBob() {
+//   let fla = 11;
+//   do {
+//     var { value, done } = wolfGen.next(1);
+//     fla--;
+//     if (fla === 7 || fla === 6) {
+//       continue;
+//     }
+//     console.dir(value);
+//   } while (!done);
+//   console.log(wolfGen.return('banana').value);
+// }
 
-function testBob() {
-  let fla = 15
-  while (true) {
-    let {  done } = wolfGen.next(1);
-fla--
-    if (!fla ){
-      // console.log(wolfGen.throw(new Error('HI'))) 
-      break;
-      }
-    
-    
-  }
-  console.log(wolfGen.return('banana').value)
-}
+//testBob(); 
 
-testBob();
+
