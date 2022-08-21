@@ -62,43 +62,46 @@ export function promtUser() {
   }
 }
 
-wolfmanLog.addEventListener('click', () => wolfman());
+wolfmanLog.addEventListener('click', () => testWolf());
+testWolf()
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
+
+
 //wolfMan(47)
 //kimbo();
 //steve();
 
-const wolfArray = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'default',
-  'end',
-];
-const wolfGen = simpleGenerator(wolfObj);
+// const wolfArray = [
+//   'a',
+//   'b',
+//   'c',
+//   'd',
+//   'e',
+//   'f',
+//   'g',
+//   'h',
+//   'i',
+//   'j',
+//   'k',
+//   'default',
+//   'end',
+// ];
+// const wolfGen = simpleGenerator(wolfObj);
 
-function testBob() {
-  let fla = 11;
-  do {
-    var { value, done } = wolfGen.next(1);
-    fla--;
-    if (fla === 7 || fla === 6) {
-      continue;
-    }
-    console.dir(value);
-  } while (!done);
-  console.log(wolfGen.return('banana').value);
-}
+// function testBob() {
+//   let fla = 11;
+//   do {
+//     var { value, done } = wolfGen.next(1);
+//     fla--;
+//     if (fla === 7 || fla === 6) {
+//       continue;
+//     }
+//     console.dir(value);
+//   } while (!done);
+//   console.log(wolfGen.return('banana').value);
+// }
 
- //testBob();
+//testBob(); 
 
-testWolf();
+
