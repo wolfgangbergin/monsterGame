@@ -63,7 +63,7 @@ export function promtUser() {
 }
 
 wolfmanLog.addEventListener('click', () => testWolf());
-testWolf()
+//testWolf()
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
 
