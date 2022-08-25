@@ -1,27 +1,48 @@
-const ARRAY = ['b', true, 1975, 1994, 'f', 'g', 1997, 'hellow', false, ['NaN']];
-const LENGTH = ARRAY.length;
-let i = -1;
-const NEW_ARRAY = [];
+import { middleEarth, ARRAY } from './steve.js';
+const iC = _.range(1, 41);
+
+let subNumber = 0;
+const LENGTH = 10;
+const ONEHUNDRED = 100;
+const wolf_obj = {};
+const THREE = 3;
+const FIVE = 5;
 
 export function testWolf() {
-  outerLoop: for (let y = 10; y; --y) {
-    
-  innerLoop: while (i < LENGTH - 1) {
-    ++i;
-    if (typeof ARRAY[i] !== 'number') {
-      continue;
-    }else if (i === 3){
-        console.log(i === 3)
-        break outerLoop;
-    }  else if (typeof ARRAY[i] === 'number') {
-      let temp = new Date().getFullYear() - ARRAY[i];
-      NEW_ARRAY.push(`  ${ARRAY[i]}  ${typeof ARRAY[i]} AGE:${temp}`);
-      continue;
+  let threeArray = [];
+  let fiveArray = [];
+  for (let i = 1; i <= ONEHUNDRED; i++) {
+    if (i * FIVE > ONEHUNDRED) {
+    } else {
+      fiveArray.push(i * FIVE);
     }
-  
-  }
-  console.dir(`${NEW_ARRAY}`);
-  
-}
 
+    if (i * THREE > ONEHUNDRED) {
+    } else {
+      threeArray.push(i * THREE);
+    }
+  }
+
+  let newFun = (param1, param2) => {
+    let kimBo1 = 0;
+    let kimBo2 = 0;
+    for(const value2 of param2){
+        kimBo2 += value2
+    }
+    for (const value1 of param1) {
+        kimBo1 += value1;
+      for (const value2 of param2) {
+       
+       
+        if (value1 === value2) {
+          subNumber += value2;
+        }
+      }
+    }
+    console.log(`wolfTest: ${subNumber}`)
+    return kimBo1 + kimBo2 - subNumber;
+  };
+  console.log(`wolfTest: ${fiveArray}`)
+  console.log(`wolfTest: ${newFun(threeArray, fiveArray)}`);
 }
+console.log(`wolfTest: ${15+30+45+60+75+90}`)

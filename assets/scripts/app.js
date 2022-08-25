@@ -61,16 +61,14 @@ export function onAttackHandler(attackMode) {
       monsterMessage = `Monster attack dose ${(mDamage = DAMAGE(10))}`;
     }
 
-    logArray.push({sentence: `${playerMessage} and ${monsterMessage}!` });
+    logArray.push({ sentence: `${playerMessage} and ${monsterMessage}!` });
 
     if (combatLog) {
       for (const i of logArray) {
-      
-        for (const key in i){
-          console.log(i[key])
+        for (const key in i) {
+          console.log(i[key]);
         }
       }
-     
 
       logArray = [];
     }
@@ -81,11 +79,13 @@ export function onAttackHandler(attackMode) {
   };
 
   if (mHealth <= 0 && pHealth > 0) {
+    let temp = pHealth;
     startGame();
-    console.log(`You Wins with ${pHealth} Health left!!! :)`);
+    console.log(`You Wins with ${temp} Health left!!! :)`);
   } else if (pHealth <= 0 && mHealth > 0) {
+    let temp = pHealth
     startGame();
-    console.log(`Monster Wins with ${mHealth} Health left!`);
+    console.log(`Monster Wins with ${temp} Health left!`);
   } else if (pHealth <= 0 && mHealth <= 0) {
     startGame();
     console.log('We have a draw! starting new game.');
