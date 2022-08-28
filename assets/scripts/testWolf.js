@@ -12,37 +12,19 @@ export function testWolf() {
   let threeArray = [];
   let fiveArray = [];
   for (let i = 1; i <= ONEHUNDRED; i++) {
-    if (i * FIVE > ONEHUNDRED) {
-    } else {
-      fiveArray.push(i * FIVE);
-    }
-
-    if (i * THREE > ONEHUNDRED) {
-    } else {
-      threeArray.push(i * THREE);
-    }
+    !(i * FIVE > ONEHUNDRED) && fiveArray.push(i * FIVE);
+    !(i * THREE > ONEHUNDRED) && threeArray.push(i * THREE);
   }
 
-  let newFun = (param1, param2) => {
-    let kimBo1 = 0;
-    let kimBo2 = 0;
-    for(const value2 of param2){
-        kimBo2 += value2
-    }
-    for (const value1 of param1) {
-        kimBo1 += value1;
-      for (const value2 of param2) {
-       
-       
-        if (value1 === value2) {
-          subNumber += value2;
-        }
-      }
-    }
-    console.log(`wolfTest: ${subNumber}`)
-    return kimBo1 + kimBo2 - subNumber;
-  };
-  console.log(`wolfTest: ${fiveArray}`)
-  console.log(`wolfTest: ${newFun(threeArray, fiveArray)}`);
+ const union = new Set([...threeArray, ...fiveArray])
+ let sum = 0
+for (const value of union){
+  sum += value
+  
 }
-console.log(`wolfTest: ${15+30+45+60+75+90}`)
+console.log(`wolfTest: ${sum}`)
+}
+
+
+const kimTest = Array.from({name:'wolf', age: 47})
+// console.log(`wolfTest: ${kimTest}`)

@@ -83,7 +83,7 @@ export function onAttackHandler(attackMode) {
     startGame();
     console.log(`You Wins with ${temp} Health left!!! :)`);
   } else if (pHealth <= 0 && mHealth > 0) {
-    let temp = pHealth
+    let temp = mHealth
     startGame();
     console.log(`Monster Wins with ${temp} Health left!`);
   } else if (pHealth <= 0 && mHealth <= 0) {

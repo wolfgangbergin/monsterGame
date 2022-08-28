@@ -13,6 +13,8 @@ import { simpleGenerator } from './simpleGenerator.js';
 import { wolfObj } from './kimbo.js';
 import { middleEarth } from './steve.js';
 import { testWolf, } from './testWolf.js';
+import {jobob,} from './sets.js'
+
 export const playerHealthBar = document.getElementById('player-health');
 export const monsterHealthBar = document.getElementById('monster-health');
 export const NORMAL_ATTACK = 'normal';
@@ -45,8 +47,14 @@ logBtn.addEventListener('click', () => {
   gameLog();
 });
 
+function newFunc(){
+  
+  return 45;
+}
+
 export function promtUser() {
-  let temp = WOLF_MAN;
+  // let temp = WOLF_MAN;
+  let temp = newFunc();
   switch (true) {
     case temp === WOLF_MAN:
       return [1000, 45];
@@ -63,7 +71,11 @@ export function promtUser() {
 }
 
 wolfmanLog.addEventListener('click', () => testWolf());
-testWolf()
+// testWolf()
+// const wolf =  true&& 'wolf'
+
+// jobob(wolf, typeof NaN,  1,4,3, false, )
+
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
 
