@@ -1,25 +1,30 @@
-const a = { name: 'kim', age: 22 };
-const b = { name: 'kim', age: 22 };
-const c = {};
-const myObject1 = {};
-myObject1[a] = 'kim';
-myObject1[b] = 'wilf';
-// console.log(myObject1)
-const myObject2 = { name: 'kim', age: 22 };
-const numbers = [1, 3, 3, 2, 3];
+try {
+  const BANANA = b;
 
-export function jobob(...props) {
-  const mySet = new Set();
-  mySet.add({ name: 'wolf' });
- 
-
-  const myArray = Array.from(mySet);
-  const temp = {...myArray[0]}
- 
-  myArray[0].name = 'bob'
-  for (const value of mySet) {
-    console.log(value);
+  if (!!BANANA) {
+    throw new SyntaxError('My SyntaxError1');
   }
-  console.log(myArray[0])
-  console.log(temp)
+  switch (true) {
+    case !!BANANA:
+      console.log('wolfMAN');
+      break;
+    default:
+      console.log('default');
+  }
+  
+} catch (err) {
+  if (err.name === 'ReferenceError') {
+    console.dir(`name: ${err.name},  meassage: ${err.message}`);
+    console.dir(err);
+  } else
+  if (err.name === 'SyntaxError') {
+    console.dir(`name: ${err.name},  meassage: ${err.message}`);
+    console.dir(err);
+  } else if (err) {
+    console.log(`wolfTest: ${err}`)
+  }
+} finally {
+  console.log('end');
 }
+
+export function jobob(...props) {}

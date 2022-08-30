@@ -47,12 +47,14 @@ logBtn.addEventListener('click', () => {
   gameLog();
 });
 
+
+
 export function promtUser() {
-  let temp = 'WOLF_MAN';
+  let temp =55;
   try {
-    switch (true) {
-      case isNaN(temp):
-        throw { message: `invalid entering 67` };
+    
+    if (isNaN(temp)) {
+      throw { message: `invalid entering 67` };
     }
   } catch (error) {
     console.log(error.message);
@@ -73,10 +75,10 @@ export function promtUser() {
 }
 
 wolfmanLog.addEventListener('click', () => testWolf());
-// testWolf()
-// const wolf =  true&& 'wolf'
+//testWolf()
+ const wolf =  true&& 'wolf'
 
-// jobob(wolf, typeof NaN,  1,4,3, false, )
+jobob(wolf, typeof NaN,  1,4,3, false, )
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
 
