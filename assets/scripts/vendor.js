@@ -78,7 +78,7 @@ wolfmanLog.addEventListener('click', () => testWolf());
 //testWolf()
  const wolf =  true&& 'wolf'
 
-jobob(wolf, typeof NaN,  1,4,3, false, )
+jobob(undefined, typeof NaN,  1,4,3, false, )
 
 export const DAMAGE = (damageMod) => Math.round(Math.random() * damageMod);
 

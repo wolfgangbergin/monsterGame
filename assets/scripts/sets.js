@@ -1,36 +1,32 @@
+const WOLF = 'wolfMan' || (() => 0)();
+const FALSE = false;
+const TESTMICH = FALSE || (WOLF && (() => 'kim22')());
+console.log(`TESTMICH: ${TESTMICH}`);
 
+// const JOBOB = WOLF && 100;
 
- 
-try {
- 
-let mySyntaxError = new SyntaxError('my SyntaxError 1')
-  
-  const BANANA = 99;
-  BANANA = 100
-  
- if (true){
-  throw mySyntaxError
- }
-  
-
-  
-} catch (err) {
-  
-  if (err.name === 'ReferenceError') {
-    console.dir(`name: ${err.name},  meassage: ${err.message}`);
-    console.dir(err);
-  } else 
-  if (err.name === 'SyntaxError') {
-    console.dir(`name: ${err.name},  meassage: ${err.message}`);
-    console.dir(err);
-  } else 
-  if (err) {
-    console.dir(err)
-   
-  }
-
-} finally {
-  console.log('end');
-}
+// switch (true) {
+//   case (KIM && WOLF === 'wolf') || JOBOB > 99:
+//     console.log(`&& || Operator`);
+//     break;
+//   case WOLF === 'wolf':
+//     console.log('wolf');
+//     break;
+//   case WOLF === '':
+//     console.log('empty string!');
+//     break;
+//   case WOLF === true:
+//     console.log('true');
+//     break;
+//   case WOLF === false:
+//     console.log('false');
+//     break;
+//   case WOLF === undefined:
+//     console.log('undefined');
+//     break;
+//   default:
+//     console.log('default');
+//     break;
+// }
 
 export function jobob(...props) {}
